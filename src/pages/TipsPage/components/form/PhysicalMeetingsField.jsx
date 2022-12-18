@@ -1,18 +1,16 @@
+import Textarea from '@/components/form/Textarea';
+
 const PhysicalMeetingsField = (props) => {
   return (
     <>
       <p className='font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-[2.5rem]'>
         რას ფიქრობ ფიზიკურ შეკრებებზე?
       </p>
-      <textarea
-        rows='4'
-        {...props.register('PhysicalMeetingsField')}
+      <Textarea
+        key='physical-meetings'
         id='physical-meetings'
-        className='block w-full mt-[1.5rem]
-         text-dark-100 font-normal text-[1rem] bg-soft-brown w-[38rem] h-[11.5rem] outline-none border-2 border-border-gray pl-[1.5rem] pt-[1rem]
-         resize-none
-        '
-      ></textarea>
+        register={props.register('physicalMeetingsField')}
+      ></Textarea>
     </>
   );
 };

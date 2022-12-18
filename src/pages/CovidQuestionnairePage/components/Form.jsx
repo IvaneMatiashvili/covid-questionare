@@ -1,9 +1,9 @@
 import { Controller, useForm } from 'react-hook-form';
-import HaveCovid from '/src/pages/CovidQuestionnairePage/components/form/HaveCovid.jsx';
-import HaveAntibodies from '/src/pages/CovidQuestionnairePage/components/form/HaveAntibodies.jsx';
-import CovidSicknessDate from '/src/pages/CovidQuestionnairePage/components/form/CovidSicknessDate.jsx';
+import HaveCovid from '@/pages/CovidQuestionnairePage/components/form/HaveCovid';
+import HaveAntibodies from '@/pages/CovidQuestionnairePage/components/form/HaveAntibodies';
+import CovidSicknessDate from '@/pages/CovidQuestionnairePage/components/form/CovidSicknessDate';
 import 'react-datepicker/dist/react-datepicker.css';
-import TestAndAntibodies from '/src/pages/CovidQuestionnairePage/components//form/TestAndAntibodies.jsx';
+import TestAndAntibodies from '@/pages/CovidQuestionnairePage/components//form/TestAndAntibodies';
 
 const Form = () => {
   const {
@@ -14,20 +14,20 @@ const Form = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      HaveCovid: localStorage.getItem('HaveCovid') || '',
-      HaveAntibodies: localStorage.getItem('HaveAntibodies') || '',
-      CovidSicknessDate: localStorage.getItem('CovidSicknessDate')
-        ? new Date(localStorage.getItem('CovidSicknessDate'))
+      haveCovid: localStorage.getItem('haveCovid') || '',
+      haveAntibodies: localStorage.getItem('haveAntibodies') || '',
+      covidSicknessDate: localStorage.getItem('covidSicknessDate')
+        ? new Date(localStorage.getItem('covidSicknessDate'))
         : '',
-      AntibodiesQuantity: localStorage.getItem('AntibodiesQuantity') || '',
-      TestDate: new Date(localStorage.getItem('TestDate')) || '',
+      antibodiesQuantity: localStorage.getItem('antibodiesQuantity') || '',
+      testDate: new Date(localStorage.getItem('testDate')) || '',
     },
   });
-  localStorage.setItem('HaveCovid', watch('HaveCovid'));
-  localStorage.setItem('HaveAntibodies', watch('HaveAntibodies'));
-  localStorage.setItem('AntibodiesQuantity', watch('AntibodiesQuantity'));
-  localStorage.setItem('CovidSicknessDate', watch('CovidSicknessDate'));
-  localStorage.setItem('TestDate', watch('TestDate'));
+  localStorage.setItem('haveCovid', watch('haveCovid'));
+  localStorage.setItem('haveAntibodies', watch('haveAntibodies'));
+  localStorage.setItem('antibodiesQuantity', watch('antibodiesQuantity'));
+  localStorage.setItem('covidSicknessDate', watch('covidSicknessDate'));
+  localStorage.setItem('testDate', watch('testDate'));
 
   return (
     <form
@@ -37,26 +37,28 @@ const Form = () => {
     >
       <HaveCovid register={register} />
       <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.HaveCovid?.message}
+        {errors.haveCovid?.message}
       </p>
-      {watch('HaveCovid') === 'yes' && <HaveAntibodies register={register} />}
-      {watch('HaveCovid') === 'yes' && (
+      {watch('haveCovid') === 'yes' && <HaveAntibodies register={register} />}
+      {watch('haveCovid') === 'yes' && (
         <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.HaveAntibodies?.message}
+          {errors.haveAntibodies?.message}
         </p>
       )}
-      {watch('HaveAntibodies') === 'no' && watch('HaveCovid') === 'yes' && (
+      {watch('haveAntibodies') === 'no' && watch('haveCovid') === 'yes' && (
         <CovidSicknessDate
           register={register}
-          watch={watch('CovidSicknessDate')}
+          watch={watch('covidSicknessDate')}
           controller={Controller}
           control={control}
         />
       )}
-      <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.CovidSicknessDate?.message}
-      </p>
-      {watch('HaveAntibodies') === 'yes' && watch('HaveCovid') === 'yes' && (
+      {watch('haveAntibodies') === 'no' && watch('haveCovid') === 'yes' && (
+        <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          {errors.covidSicknessDate?.message}
+        </p>
+      )}
+      {watch('haveAntibodies') === 'yes' && watch('haveCovid') === 'yes' && (
         <TestAndAntibodies
           register={register}
           watch={watch}

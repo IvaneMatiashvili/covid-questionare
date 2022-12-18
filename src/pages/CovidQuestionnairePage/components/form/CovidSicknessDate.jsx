@@ -1,6 +1,5 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import MaskedInput from 'react-text-mask';
 
 const CovidSicknessDate = ({
   controller: Controller,
@@ -29,7 +28,7 @@ const CovidSicknessDate = ({
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
-            ref-setter={register('CovidSicknessDate', {
+            ref-setter={register('covidSicknessDate', {
               required: {
                 value: true,
                 message: 'გთხოვთ აირჩით თარიღი',

@@ -14,15 +14,15 @@ const Form = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      HaveVaccination: localStorage.getItem('HaveVaccination') || '',
-      Stage: localStorage.getItem('Stage') || '',
-      WhatAreYouWaitingFor: localStorage.getItem('WhatAreYouWaitingFor') || '',
+      haveVaccination: localStorage.getItem('haveVaccination') || '',
+      stage: localStorage.getItem('stage') || '',
+      whatAreYouWaitingFor: localStorage.getItem('whatAreYouWaitingFor') || '',
     },
   });
 
-  localStorage.setItem('HaveVaccination', watch('HaveVaccination'));
-  localStorage.setItem('Stage', watch('Stage'));
-  localStorage.setItem('WhatAreYouWaitingFor', watch('WhatAreYouWaitingFor'));
+  localStorage.setItem('haveVaccination', watch('haveVaccination'));
+  localStorage.setItem('stage', watch('stage'));
+  localStorage.setItem('whatAreYouWaitingFor', watch('whatAreYouWaitingFor'));
   return (
     <form
       onSubmit={handleSubmit((data) => {
@@ -31,30 +31,30 @@ const Form = () => {
     >
       <HaveVaccination register={register} />
       <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.HaveVaccination?.message}
+        {errors.haveVaccination?.message}
       </p>
-      {watch('HaveVaccination') === 'yes' && <Stage register={register} />}
-      {watch('HaveVaccination') === 'yes' && (
+      {watch('haveVaccination') === 'yes' && <Stage register={register} />}
+      {watch('haveVaccination') === 'yes' && (
         <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.Stage?.message}
+          {errors.stage?.message}
         </p>
       )}
 
-      {watch('HaveVaccination') === 'yes' && watch('Stage') === 'secondNot' && (
+      {watch('haveVaccination') === 'yes' && watch('stage') === 'secondNot' && (
         <RegisterNow />
       )}
-      {watch('HaveVaccination') === 'no' && (
+      {watch('haveVaccination') === 'no' && (
         <WhatAreYouWaitingFor register={register} />
       )}
-      {watch('HaveVaccination') === 'no' && (
+      {watch('haveVaccination') === 'no' && (
         <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.WhatAreYouWaitingFor?.message}
+          {errors.whatAreYouWaitingFor?.message}
         </p>
       )}
-      {watch('HaveVaccination') === 'no' &&
-        watch('WhatAreYouWaitingFor') === 'doNotPlan' && <DoNotPlan />}
-      {watch('HaveVaccination') === 'no' &&
-        watch('WhatAreYouWaitingFor') === 'HaveCovid' && <PlanToVaccinate />}
+      {watch('haveVaccination') === 'no' &&
+        watch('whatAreYouWaitingFor') === 'doNotPlan' && <DoNotPlan />}
+      {watch('haveVaccination') === 'no' &&
+        watch('whatAreYouWaitingFor') === 'HaveCovid' && <PlanToVaccinate />}
       <button type='submit'>submit</button>
     </form>
   );

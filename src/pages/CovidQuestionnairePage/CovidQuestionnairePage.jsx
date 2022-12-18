@@ -1,5 +1,5 @@
-import Layout from '/src/components/Layout.jsx';
-import Form from '/src/pages/CovidQuestionnairePage/components/Form.jsx';
+import Layout from '@/components/Layout';
+import Form from '@/pages/CovidQuestionnairePage/components/Form';
 
 const CovidQuestionnairePage = () => {
   localStorage.setItem('page', '2');

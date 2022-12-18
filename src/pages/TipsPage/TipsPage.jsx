@@ -1,5 +1,5 @@
-import Layout from '/src/components/Layout.jsx';
-import Form from '/src/pages/TipsPage/components/Form';
+import Layout from '@/components/Layout';
+import Form from '@/pages/TipsPage/components/Form';
 
 const VaccinationPage = () => {
   localStorage.setItem('page', '4');

@@ -1,6 +1,5 @@
-import Layout from '/src/components/Layout.jsx';
-import Form from '/src/pages/IdentityPage/components/Form.jsx';
-import { useForm } from 'react-hook-form';
+import Layout from '@/components/Layout';
+import Form from '@/pages/IdentityPage/components/Form';
 
 const IdentityPage = () => {
   localStorage.setItem('page', '1');

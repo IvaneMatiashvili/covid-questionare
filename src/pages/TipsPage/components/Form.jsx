@@ -1,7 +1,7 @@
-import MeetingField from '/src/pages/TipsPage/components/form/MeetingField.jsx';
-import WorkInOfficeField from '/src/pages/TipsPage/components/form/WorkInOfficeField.jsx';
-import PhysicalMeetingsField from '/src/pages/TipsPage/components/form/PhysicalMeetingsField.jsx';
-import WhatWouldYouChangeField from '/src/pages/TipsPage/components/form/WhatWouldYouChangeField.jsx';
+import MeetingField from '@/pages/TipsPage/components/form/MeetingField';
+import WorkInOfficeField from '@/pages/TipsPage/components/form/WorkInOfficeField';
+import PhysicalMeetingsField from '@/pages/TipsPage/components/form/PhysicalMeetingsField';
+import WhatWouldYouChangeField from '@/pages/TipsPage/components/form/WhatWouldYouChangeField';
 import { useForm } from 'react-hook-form';
 
 const Form = () => {
@@ -12,20 +12,20 @@ const Form = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      MeetingField: localStorage.getItem('MeetingField') || '',
-      WorkInOfficeField: localStorage.getItem('WorkInOfficeField') || '',
-      PhysicalMeetingsField:
-        localStorage.getItem('PhysicalMeetingsField') || '',
-      WhatWouldYouChangeField:
-        localStorage.getItem('WhatWouldYouChangeField') || '',
+      meetingField: localStorage.getItem('meetingField') || '',
+      workInOfficeField: localStorage.getItem('workInOfficeField') || '',
+      physicalMeetingsField:
+        localStorage.getItem('physicalMeetingsField') || '',
+      whatWouldYouChangeField:
+        localStorage.getItem('whatWouldYouChangeField') || '',
     },
   });
-  localStorage.setItem('MeetingField', watch('MeetingField'));
-  localStorage.setItem('WorkInOfficeField', watch('WorkInOfficeField'));
-  localStorage.setItem('PhysicalMeetingsField', watch('PhysicalMeetingsField'));
+  localStorage.setItem('meetingField', watch('meetingField'));
+  localStorage.setItem('workInOfficeField', watch('workInOfficeField'));
+  localStorage.setItem('physicalMeetingsField', watch('physicalMeetingsField'));
   localStorage.setItem(
-    'WhatWouldYouChangeField',
-    watch('WhatWouldYouChangeField')
+    'whatWouldYouChangeField',
+    watch('whatWouldYouChangeField')
   );
 
   return (
@@ -37,11 +37,11 @@ const Form = () => {
       <div className='mt-[2.6rem] mb-[8rem]'>
         <MeetingField register={register} />
         <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.MeetingField?.message}
+          {errors.meetingField?.message}
         </p>
         <WorkInOfficeField register={register} />
         <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.WorkInOfficeField?.message}
+          {errors.workInOfficeField?.message}
         </p>
         <PhysicalMeetingsField register={register} />
         <WhatWouldYouChangeField register={register} />
