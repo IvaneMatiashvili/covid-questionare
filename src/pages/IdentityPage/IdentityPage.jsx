@@ -1,8 +1,16 @@
 import Layout from '@/components/Layout';
 import Form from '@/pages/IdentityPage/components/Form';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const IdentityPage = () => {
-  localStorage.setItem('page', '1');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('page') !== '1') {
+      navigate(-1);
+    }
+  });
   return (
     <>
       <Layout>
