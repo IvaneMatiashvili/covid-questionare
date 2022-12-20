@@ -8,14 +8,14 @@ const WhatAreYouWaitingFor = (props) => {
         <InputRadioAndLabel
           key='registration-yes'
           id='registration-yes'
-          value='RegistrationYes'
+          value='registered_and_waiting'
           register={props.register('whatAreYouWaitingFor')}
           labelContent='დარეგისტრირებული ვარ და ველოდები რიცხვს'
         />
         <InputRadioAndLabel
           key='do-not-plan'
           id='do-not-plan'
-          value='doNotPlan'
+          value='not_planning'
           register={props.register('whatAreYouWaitingFor', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
@@ -24,7 +24,7 @@ const WhatAreYouWaitingFor = (props) => {
         <InputRadioAndLabel
           key='have-covid'
           id='have-covid'
-          value='HaveCovid'
+          value='had_covid_and_planning_to_be_vaccinated'
           register={props.register('whatAreYouWaitingFor', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
