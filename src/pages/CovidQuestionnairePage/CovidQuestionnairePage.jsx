@@ -1,8 +1,17 @@
 import Layout from '@/components/Layout';
 import Form from '@/pages/CovidQuestionnairePage/components/Form';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const CovidQuestionnairePage = () => {
-  localStorage.setItem('page', '2');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('page') !== '2') {
+      navigate(-1);
+    }
+  });
   return (
     <>
       <Layout>

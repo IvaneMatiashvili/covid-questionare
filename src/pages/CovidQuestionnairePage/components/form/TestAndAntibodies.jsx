@@ -17,9 +17,9 @@ const TestAndAntibodies = ({
       </label>
 
       <Controller
-        id='TestDate'
+        id='testDate'
         control={control}
-        name='TestDate'
+        name='testDate'
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <DatePicker
             placeholderText={'რიცხვი'}
@@ -27,7 +27,7 @@ const TestAndAntibodies = ({
             className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
             onChange={onChange}
             onBlur={onBlur}
-            selected={watch('testDate')}
+            selected={watch}
             ref-setter={register('testDate')}
           />
         )}
