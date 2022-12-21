@@ -3,7 +3,9 @@ import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 const HaveVaccination = (props) => {
   return (
     <div className='mt-[2.6rem]'>
-      <p className='font-bold text-[1.3rem] text-dark-100'>უკვე აცრილი ხარ?*</p>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100'>
+        უკვე აცრილი ხარ?*
+      </p>
       <div className='flex flex-col'>
         <InputRadioAndLabel
           key='vaccination-yes'

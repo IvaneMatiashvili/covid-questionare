@@ -10,7 +10,7 @@ const TestAndAntibodies = ({
     <>
       <label
         htmlFor='AntibodiesQuantity'
-        className='block text-[1.4rem] font-bold text-dark-100 mt-[2.5rem]'
+        className='block font-arial text-[1.4rem] font-bold text-dark-100 mt-[2.5rem]'
       >
         თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების
         რაოდენობა*
@@ -24,7 +24,7 @@ const TestAndAntibodies = ({
           <DatePicker
             placeholderText={'რიცხვი'}
             dateFormat='dd/MM/yyyy'
-            className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
+            className='placeholder-gray-500 placeholder-4 font-arial placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
@@ -37,7 +37,7 @@ const TestAndAntibodies = ({
         type='number'
         id='AntibodiesQuantity'
         placeholder='ანტისხეულების რაოდენობა'
-        className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
+        className='placeholder-gray-500 font-arial placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
       />
     </>
   );

@@ -3,7 +3,7 @@ import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 const Stage = (props) => {
   return (
     <div className='mt-[2.6rem]'>
-      <p className='font-bold text-[1.3rem] text-dark-100'>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100'>
         აირჩიე რა ეტაპზე ხარ*
       </p>
       <div className='flex flex-col'>

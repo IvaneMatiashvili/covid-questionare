@@ -3,7 +3,7 @@ import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 const MeetingField = (props) => {
   return (
     <>
-      <p className='font-bold text-[1.3rem] text-dark-100 w-[33rem]'>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem]'>
         რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები,
         სადაც ყველა სურვილისამებრ ჩაერთვება?*
       </p>
