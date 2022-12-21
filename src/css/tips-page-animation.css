@@ -1,0 +1,13 @@
+.tips-logo-from-left-animation {
+    animation: tipsSlideLogoFromLeft 200ms linear;
+}
+
+@keyframes tipsSlideLogoFromLeft {
+    from {
+        transform: translateX(-10rem) translateY(-5rem);
+    }
+
+    to {
+        transform: translateX(0) translateY(0);
+    }
+}

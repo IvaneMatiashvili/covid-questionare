@@ -1,0 +1,15 @@
+.identity-logo-left-animation {
+  animation: identitySlideLogoLeft 200ms linear;
+}
+
+@keyframes identitySlideLogoLeft {
+  from {
+    transform: translateX(-50px) translateY(50px);
+    width: 0;
+  }
+
+  to {
+    transform: translateX(0%) translateY(0%);
+    width: 40rem;
+  }
+}
