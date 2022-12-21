@@ -1,5 +1,4 @@
 import axios from 'axios';
-import covidSicknessDate from '@/pages/CovidQuestionnairePage/components/form/CovidSicknessDate.jsx';
 import moment from 'moment';
 
 const getRegisterRequest = async (enteredValues) => {
