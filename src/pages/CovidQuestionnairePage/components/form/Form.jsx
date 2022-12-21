@@ -1,13 +1,13 @@
-import { Controller, useForm, useWatch } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import HaveCovid from '@/pages/CovidQuestionnairePage/components/form/HaveCovid';
 import HaveAntibodies from '@/pages/CovidQuestionnairePage/components/form/HaveAntibodies';
 import CovidSicknessDate from '@/pages/CovidQuestionnairePage/components/form/CovidSicknessDate';
 import 'react-datepicker/dist/react-datepicker.css';
-import TestAndAntibodies from '@/pages/CovidQuestionnairePage/components//form/TestAndAntibodies';
+import TestAndAntibodies from '@/pages/CovidQuestionnairePage/components/form/TestAndAntibodies';
 import RightArrow from '@/components/icons/RightArrow';
 import LeftArrow from '@/components/icons/LeftArrow';
-import { useCovidQuestionnairePageForm } from '@/pages/CovidQuestionnairePage/components/form/useCovidQuestionnairePageForm.jsx';
+import { useCovidQuestionnairePageForm } from '@/pages/CovidQuestionnairePage/components/form/useCovidQuestionnairePageForm';
 
 const Form = () => {
   const {
@@ -29,7 +29,7 @@ const Form = () => {
         errors={errors}
         name='haveCovid'
         render={({ message }) => (
-          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
             {message}
           </p>
         )}
@@ -40,7 +40,7 @@ const Form = () => {
           errors={errors}
           name='haveAntibodies'
           render={({ message }) => (
-            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
               {message}
             </p>
           )}
@@ -59,7 +59,7 @@ const Form = () => {
           errors={errors}
           name='covidSicknessDate'
           render={({ message }) => (
-            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
               {message}
             </p>
           )}
