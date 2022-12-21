@@ -107,6 +107,8 @@ const Form = () => {
           physicalMeetingsField,
           whatWouldYouChangeField,
         });
+        localStorage.setItem('page', '5');
+        navigate('/thank-you', { replace: true });
       })}
     >
       <div className='mt-[2.6rem] mb-[8rem]'>
@@ -135,14 +137,14 @@ const Form = () => {
         <div className='w-[38rem] flex justify-end mt-[2.5rem]'>
           <button
             type='submit'
-            className='bg-btn-green w-[10rem] h-[3.5rem] font-bold text-base text-white rounded-[2.6rem] flex justify-center items-center'
+            className='bg-btn-green w-[10rem] h-[3.5rem] z-20 font-bold text-base text-white rounded-[2.6rem] flex justify-center items-center'
           >
             დასრულება
           </button>
         </div>
       </div>
       <div
-        className='absolute left-[50%] top-[181%] cursor-pointer'
+        className='absolute left-[50%] top-[181%] z-20 cursor-pointer'
         onClick={() => {
           localStorage.setItem('page', '3');
           navigate('/vaccination', { replace: true });

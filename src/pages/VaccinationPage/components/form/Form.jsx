@@ -109,6 +109,7 @@ const Form = () => {
       <div
         className='absolute left-[50%] bottom-[5%] cursor-pointer'
         onClick={() => {
+          localStorage.setItem('from', 'right');
           localStorage.setItem('page', '2');
           navigate('/covid-questionnaire', { replace: true });
         }}
