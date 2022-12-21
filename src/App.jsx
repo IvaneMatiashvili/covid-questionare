@@ -6,14 +6,9 @@ import IdentityPage from '@/pages/IdentityPage/IdentityPage';
 import CovidQuestionnairePage from '@/pages/CovidQuestionnairePage/CovidQuestionnairePage';
 import VaccinationPage from '@/pages/VaccinationPage/ VaccinationPage';
 import TipsPage from '@/pages/TipsPage/TipsPage';
-import { useEffect } from 'react';
+import ThankYou from '@/pages/ThankYouPage/ThankYou';
 
 function App() {
-  useEffect(() => {
-    if (!localStorage.getItem('page')) {
-      localStorage.setItem('page', '0');
-    }
-  });
   return (
     <>
       <Routes>
@@ -25,6 +20,8 @@ function App() {
         />
         <Route path='/vaccination' element={<VaccinationPage />} />
         <Route path='/tips' element={<TipsPage />} />
+        <Route path='/thank-you' element={<ThankYou />} />
+
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
