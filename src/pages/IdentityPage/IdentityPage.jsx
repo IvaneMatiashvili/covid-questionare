@@ -1,35 +1,33 @@
 import Layout from '@/components/Layout';
-import Form from '@/pages/IdentityPage/components/Form';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import Form from '@/pages/IdentityPage/components/form/Form';
+import useRedirectToCurrentPage from '@/hooks/use-redirect-to-current-page';
+import '@/css/identity-page-animatiom.css';
 
 const IdentityPage = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem('page') !== '1') {
-      navigate(-1);
-    }
-  });
+  useRedirectToCurrentPage();
   return (
-    <>
-      <Layout>
-        <div className='w-[95rem] flex justify-between'>
-          <div>
-            <Form />
-            <div className='w-[14.8rem] mt-[10rem] h-[1px] bg-dark-100'></div>
-            <p className='mt-[1.25rem] text-soft-gray font-normal text-base'>
-              *-ით მონიშნული ველების შევსება
-            </p>
-            <p className='text-soft-gray font-normal text-base'>სავალდებულოა</p>
-          </div>
-          <img
-            src='/assets/identity.png'
-            className='object-top object-cover h-[50rem] relative bottom-10'
-          />
+    <Layout>
+      <div className='w-[95rem] flex justify-between opacity-animation'>
+        <div>
+          <Form />
+          <div className='w-[14.8rem] mt-[10rem] h-[1px] bg-dark-100'></div>
+          <p className='mt-[1.25rem] font-arial text-soft-gray font-normal text-base'>
+            *-ით მონიშნული ველების შევსება
+          </p>
+          <p className='text-soft-gray font-arial font-normal text-base'>
+            სავალდებულოა
+          </p>
         </div>
-      </Layout>
-    </>
+        <img
+          src='/assets/identity.png'
+          className='object-top object-cover h-[50rem] z-10 relative bottom-10'
+        />
+        <img
+          src='/assets/rectangle.png'
+          className='h-[4rem] w-[40rem] absolute left-[50%] top-[33%] identity-logo-left-animation'
+        />
+      </div>
+    </Layout>
   );
 };
 
