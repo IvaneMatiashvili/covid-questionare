@@ -1,8 +1,16 @@
 import Layout from '@/components/Layout';
 import Form from '@/pages/TipsPage/components/Form';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const VaccinationPage = () => {
-  localStorage.setItem('page', '4');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('page') !== '4') {
+      navigate(-1);
+    }
+  });
   return (
     <>
       <Layout>

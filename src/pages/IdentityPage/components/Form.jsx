@@ -1,10 +1,20 @@
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+import { useContext, useEffect } from 'react';
+import SendDataContext from '@/context/send-data-context';
+import RightArrow from '@/components/icons/RightArrow';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+  const navigate = useNavigate();
+  const {
+    identity: { setName, setLastName, setEmail },
+  } = useContext(SendDataContext);
+
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -13,19 +23,38 @@ const Form = () => {
       email: localStorage.getItem('email') || '',
     },
   });
+  const watchName = useWatch({
+    control,
+    name: 'name',
+  });
+  const watchLastName = useWatch({
+    control,
+    name: 'lastName',
+  });
+  const watchEmail = useWatch({
+    control,
+    name: 'email',
+  });
 
-  localStorage.setItem('name', watch('name'));
-  localStorage.setItem('lastName', watch('lastName'));
-  localStorage.setItem('email', watch('email'));
+  useEffect(() => {
+    localStorage.setItem('name', watchName);
+    localStorage.setItem('lastName', watchLastName);
+    localStorage.setItem('email', watchEmail);
+
+    setName(watchName);
+    setLastName(watchLastName);
+    setEmail(watchEmail);
+  }, [watchName, watchLastName, watchEmail]);
 
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
+        localStorage.setItem('page', '2');
+        navigate('/covid-questionnaire', { replace: true });
       })}
     >
       <label
-        for='name'
+        htmlFor='name'
         className='block text-[1.4rem] font-bold text-dark-100 mt-[2.5rem]'
       >
         სახელი*
@@ -42,11 +71,17 @@ const Form = () => {
         placeholder='იოსებ'
         className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
       />
-      <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.name?.message}
-      </p>
+      <ErrorMessage
+        errors={errors}
+        name='name'
+        render={({ message }) => (
+          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            {message}
+          </p>
+        )}
+      />
       <label
-        For='last-name'
+        htmlFor='last-name'
         className='block text-[1.4rem] mt-[2.5rem] font-bold text-dark-100'
       >
         გვარი*
@@ -63,11 +98,17 @@ const Form = () => {
         placeholder='ჯუღაშვილი'
         className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
       />
-      <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.lastName?.message}
-      </p>
+      <ErrorMessage
+        errors={errors}
+        name='lastName'
+        render={({ message }) => (
+          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            {message}
+          </p>
+        )}
+      />
       <label
-        For='email'
+        htmlFor='email'
         className='block text-[1.4rem] mt-[2.5rem] font-bold text-dark-100'
       >
         მეილი*
@@ -85,10 +126,19 @@ const Form = () => {
         placeholder='fbi@redberry.ge'
         className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
       />
-      <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.email?.message}
-      </p>
-      <button type='submit'>submit</button>
+
+      <ErrorMessage
+        errors={errors}
+        name='email'
+        render={({ message }) => (
+          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            {message}
+          </p>
+        )}
+      />
+      <button type='submit' className='absolute left-[55%] bottom-[5%]'>
+        <RightArrow />
+      </button>
     </form>
   );
 };

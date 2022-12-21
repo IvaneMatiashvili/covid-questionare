@@ -14,7 +14,7 @@ const MeetingField = (props) => {
           register={props.register('meetingField', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
-          value='twice-a-week'
+          value='twice_a_week'
           labelContent='კვირაში ორჯერ'
         />
         <InputRadioAndLabel
@@ -23,7 +23,7 @@ const MeetingField = (props) => {
           register={props.register('meetingField', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
-          value='onceAWeek'
+          value='once_a_week'
           labelContent='კვირაში ერთხელ'
         />
         <InputRadioAndLabel
@@ -32,7 +32,7 @@ const MeetingField = (props) => {
           register={props.register('meetingField', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
-          value='onceInTwoWeeks'
+          value='once_in_a_two_weeks'
           labelContent='ორ კვირაში ერთხელ'
         />
         <InputRadioAndLabel
@@ -41,7 +41,7 @@ const MeetingField = (props) => {
           register={props.register('meetingField', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
-          value='onceAMonth'
+          value='once_in_a_month'
           labelContent='თვეში ერთხელ'
         />
       </div>

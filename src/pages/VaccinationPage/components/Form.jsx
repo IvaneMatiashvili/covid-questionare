@@ -1,16 +1,27 @@
 import HaveVaccination from '/src/pages/VaccinationPage/components/form/HaveVaccination.jsx';
 import Stage from '/src/pages/VaccinationPage/components/form/Stage.jsx';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 import RegisterNow from '/src/pages/VaccinationPage/components/form/feedback/RegisterNow.jsx';
 import WhatAreYouWaitingFor from '/src/pages/VaccinationPage/components/form/WhatAreYouWaitingFor.jsx';
 import DoNotPlan from '/src/pages/VaccinationPage/components/form/feedback/DoNotPlan.jsx';
 import PlanToVaccinate from '/src/pages/VaccinationPage/components/form/feedback/PlanToVaccinate.jsx';
+import { useContext, useEffect } from 'react';
+import SendDataContext from '@/context/send-data-context';
+import RightArrow from '@/components/icons/RightArrow';
+import LeftArrow from '@/components/icons/LeftArrow';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+  const navigate = useNavigate();
+  const {
+    vaccination: { setHaveVaccination, setStage, setWhatAreYouWaitingFor },
+  } = useContext(SendDataContext);
+  const ctx = useContext(SendDataContext);
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -19,43 +30,91 @@ const Form = () => {
       whatAreYouWaitingFor: localStorage.getItem('whatAreYouWaitingFor') || '',
     },
   });
+  const watchHaveVaccination = useWatch({
+    control,
+    name: 'haveVaccination',
+  });
+  const watchStage = useWatch({
+    control,
+    name: 'stage',
+  });
+  const watchWhatAreYouWaitingFor = useWatch({
+    control,
+    name: 'whatAreYouWaitingFor',
+  });
 
-  localStorage.setItem('haveVaccination', watch('haveVaccination'));
-  localStorage.setItem('stage', watch('stage'));
-  localStorage.setItem('whatAreYouWaitingFor', watch('whatAreYouWaitingFor'));
+  useEffect(() => {
+    localStorage.setItem('haveVaccination', watchHaveVaccination);
+    localStorage.setItem('stage', watchStage);
+    localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor);
+
+    setHaveVaccination(watchHaveVaccination);
+    setStage(watchStage);
+    setWhatAreYouWaitingFor(watchWhatAreYouWaitingFor);
+  }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor]);
+
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
+        localStorage.setItem('page', '4');
+        navigate('/tips', { replace: true });
       })}
     >
       <HaveVaccination register={register} />
-      <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-        {errors.haveVaccination?.message}
-      </p>
-      {watch('haveVaccination') === 'yes' && <Stage register={register} />}
-      {watch('haveVaccination') === 'yes' && (
-        <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.stage?.message}
-        </p>
+      <ErrorMessage
+        errors={errors}
+        name='haveVaccination'
+        render={({ message }) => (
+          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            {message}
+          </p>
+        )}
+      />
+      {watchHaveVaccination === 'yes' && <Stage register={register} />}
+      {watchHaveVaccination === 'yes' && (
+        <ErrorMessage
+          errors={errors}
+          name='stage'
+          render={({ message }) => (
+            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
       )}
-
-      {watch('haveVaccination') === 'yes' && watch('stage') === 'secondNot' && (
-        <RegisterNow />
-      )}
-      {watch('haveVaccination') === 'no' && (
+      {watchHaveVaccination === 'yes' &&
+        watchStage === 'first_dosage_and_not_registered_yet' && <RegisterNow />}
+      {watchHaveVaccination === 'no' && (
         <WhatAreYouWaitingFor register={register} />
       )}
-      {watch('haveVaccination') === 'no' && (
-        <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.whatAreYouWaitingFor?.message}
-        </p>
+      {watchHaveVaccination === 'no' && (
+        <ErrorMessage
+          errors={errors}
+          name='whatAreYouWaitingFor'
+          render={({ message }) => (
+            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
       )}
-      {watch('haveVaccination') === 'no' &&
-        watch('whatAreYouWaitingFor') === 'doNotPlan' && <DoNotPlan />}
-      {watch('haveVaccination') === 'no' &&
-        watch('whatAreYouWaitingFor') === 'HaveCovid' && <PlanToVaccinate />}
-      <button type='submit'>submit</button>
+      {watchHaveVaccination === 'no' &&
+        watchWhatAreYouWaitingFor === 'not_planning' && <DoNotPlan />}
+      {watchHaveVaccination === 'no' &&
+        watchWhatAreYouWaitingFor ===
+          'had_covid_and_planning_to_be_vaccinated' && <PlanToVaccinate />}
+      <button type='submit' className='absolute left-[55%] bottom-[5%]'>
+        <RightArrow />
+      </button>
+      <div
+        className='absolute left-[50%] bottom-[5%] cursor-pointer'
+        onClick={() => {
+          localStorage.setItem('page', '2');
+          navigate('/covid-questionnaire', { replace: true });
+        }}
+      >
+        <LeftArrow />
+      </div>
     </form>
   );
 };

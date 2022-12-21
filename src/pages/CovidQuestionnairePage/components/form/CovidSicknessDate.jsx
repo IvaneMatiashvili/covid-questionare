@@ -19,7 +19,7 @@ const CovidSicknessDate = ({
       <Controller
         id='covid-sickness-date'
         control={control}
-        name='CovidSicknessDate'
+        name='covidSicknessDate'
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <DatePicker
             placeholderText={'დდ/თთ/წწ'}

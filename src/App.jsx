@@ -1,13 +1,19 @@
-import LandingPage from '/src/pages/LangingPage/LandingPage.jsx';
-import '/src/index.css';
+import LandingPage from '@/pages/LangingPage/LandingPage';
+import '@/index.css';
 import { Route, Routes } from 'react-router-dom';
-import NotFoundPage from '/src/pages/NotFoundPage/NotFoundPage';
-import IdentityPage from '/src/pages/IdentityPage/IdentityPage';
-import CovidQuestionnairePage from '/src/pages/CovidQuestionnairePage/CovidQuestionnairePage.jsx';
-import VaccinationPage from '/src/pages/VaccinationPage/ VaccinationPage';
-import TipsPage from '/src/pages/TipsPage/TipsPage.jsx';
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
+import IdentityPage from '@/pages/IdentityPage/IdentityPage';
+import CovidQuestionnairePage from '@/pages/CovidQuestionnairePage/CovidQuestionnairePage';
+import VaccinationPage from '@/pages/VaccinationPage/ VaccinationPage';
+import TipsPage from '@/pages/TipsPage/TipsPage';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    if (!localStorage.getItem('page')) {
+      localStorage.setItem('page', '0');
+    }
+  });
   return (
     <>
       <Routes>

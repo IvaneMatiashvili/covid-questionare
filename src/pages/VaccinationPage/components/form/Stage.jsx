@@ -10,14 +10,14 @@ const Stage = (props) => {
         <InputRadioAndLabel
           key='stage-first'
           id='stage-first'
-          value='first'
+          value='first_dosage_and_registered_on_the_second'
           register={props.register('stage')}
           labelContent='პირველი დოზა და დარეგისტრირებული ვარ მეორეზე'
         />
         <InputRadioAndLabel
           key='Stage-full'
           id='Stage-full'
-          value='full'
+          value='fully_vaccinated'
           register={props.register('stage', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}
@@ -26,7 +26,7 @@ const Stage = (props) => {
         <InputRadioAndLabel
           key='second-not'
           id='second-not'
-          value='secondNot'
+          value='first_dosage_and_not_registered_yet'
           register={props.register('stage', {
             required: 'გთხოვთ მონიშნეთ პასუხი',
           })}

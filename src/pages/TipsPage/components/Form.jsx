@@ -2,13 +2,43 @@ import MeetingField from '@/pages/TipsPage/components/form/MeetingField';
 import WorkInOfficeField from '@/pages/TipsPage/components/form/WorkInOfficeField';
 import PhysicalMeetingsField from '@/pages/TipsPage/components/form/PhysicalMeetingsField';
 import WhatWouldYouChangeField from '@/pages/TipsPage/components/form/WhatWouldYouChangeField';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+import { useContext, useEffect } from 'react';
+import SendDataContext from '@/context/send-data-context';
+import getRegisterRequest from '@/services/index';
+import LeftArrow from '@/components/icons/LeftArrow';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+  const navigate = useNavigate();
+  const {
+    identity: { name, lastName, email },
+    covidQuestionnaire: {
+      haveCovid,
+      haveAntibodies,
+      covidSicknessDate,
+      antibodiesQuantity,
+      testDate,
+    },
+    vaccination: { haveVaccination, stage, whatAreYouWaitingFor },
+    tips: {
+      meetingField,
+      setMeetingField,
+      workInOfficeField,
+      setWorkInOfficeField,
+      physicalMeetingsField,
+      setPhysicalMeetingsField,
+      whatWouldYouChangeField,
+      setWhatWouldYouChangeField,
+    },
+  } = useContext(SendDataContext);
+  const ctx = useContext(SendDataContext);
+
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -20,29 +50,86 @@ const Form = () => {
         localStorage.getItem('whatWouldYouChangeField') || '',
     },
   });
-  localStorage.setItem('meetingField', watch('meetingField'));
-  localStorage.setItem('workInOfficeField', watch('workInOfficeField'));
-  localStorage.setItem('physicalMeetingsField', watch('physicalMeetingsField'));
-  localStorage.setItem(
-    'whatWouldYouChangeField',
-    watch('whatWouldYouChangeField')
-  );
+  const watchMeetingField = useWatch({
+    control,
+    name: 'meetingField',
+  });
+  const watchWorkInOfficeField = useWatch({
+    control,
+    name: 'workInOfficeField',
+  });
+  const watchPhysicalMeetingsField = useWatch({
+    control,
+    name: 'physicalMeetingsField',
+  });
+  const watchWhatWouldYouChangeField = useWatch({
+    control,
+    name: 'whatWouldYouChangeField',
+  });
+
+  useEffect(() => {
+    localStorage.setItem('meetingField', watchMeetingField);
+    localStorage.setItem('workInOfficeField', watchWorkInOfficeField);
+    localStorage.setItem('physicalMeetingsField', watchPhysicalMeetingsField);
+    localStorage.setItem(
+      'whatWouldYouChangeField',
+      watchWhatWouldYouChangeField
+    );
+
+    setMeetingField(watchMeetingField);
+    setWorkInOfficeField(watchWorkInOfficeField);
+    setPhysicalMeetingsField(watchPhysicalMeetingsField);
+    setWhatWouldYouChangeField(watchWhatWouldYouChangeField);
+  }, [
+    watchMeetingField,
+    watchWorkInOfficeField,
+    watchPhysicalMeetingsField,
+    watchWhatWouldYouChangeField,
+  ]);
 
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
+        const registerRequest = getRegisterRequest({
+          name,
+          lastName,
+          email,
+          haveCovid,
+          haveAntibodies,
+          covidSicknessDate,
+          antibodiesQuantity,
+          testDate,
+          haveVaccination,
+          stage,
+          whatAreYouWaitingFor,
+          meetingField,
+          workInOfficeField,
+          physicalMeetingsField,
+          whatWouldYouChangeField,
+        });
       })}
     >
       <div className='mt-[2.6rem] mb-[8rem]'>
         <MeetingField register={register} />
-        <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.meetingField?.message}
-        </p>
+        <ErrorMessage
+          errors={errors}
+          name='meetingField'
+          render={({ message }) => (
+            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
         <WorkInOfficeField register={register} />
-        <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
-          {errors.workInOfficeField?.message}
-        </p>
+        <ErrorMessage
+          errors={errors}
+          name='workInOfficeField'
+          render={({ message }) => (
+            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
         <PhysicalMeetingsField register={register} />
         <WhatWouldYouChangeField register={register} />
         <div className='w-[38rem] flex justify-end mt-[2.5rem]'>
@@ -53,6 +140,15 @@ const Form = () => {
             დასრულება
           </button>
         </div>
+      </div>
+      <div
+        className='absolute left-[50%] top-[181%] cursor-pointer'
+        onClick={() => {
+          localStorage.setItem('page', '3');
+          navigate('/vaccination', { replace: true });
+        }}
+      >
+        <LeftArrow />
       </div>
     </form>
   );
