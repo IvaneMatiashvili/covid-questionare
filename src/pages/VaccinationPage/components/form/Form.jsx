@@ -1,71 +1,33 @@
-import HaveVaccination from '/src/pages/VaccinationPage/components/form/HaveVaccination.jsx';
-import Stage from '/src/pages/VaccinationPage/components/form/Stage.jsx';
-import { useForm, useWatch } from 'react-hook-form';
+import HaveVaccination from '/src/pages/VaccinationPage/components/form/HaveVaccination';
+import Stage from '/src/pages/VaccinationPage/components/form/Stage';
 import { ErrorMessage } from '@hookform/error-message';
-import RegisterNow from '/src/pages/VaccinationPage/components/form/feedback/RegisterNow.jsx';
-import WhatAreYouWaitingFor from '/src/pages/VaccinationPage/components/form/WhatAreYouWaitingFor.jsx';
-import DoNotPlan from '/src/pages/VaccinationPage/components/form/feedback/DoNotPlan.jsx';
-import PlanToVaccinate from '/src/pages/VaccinationPage/components/form/feedback/PlanToVaccinate.jsx';
-import { useContext, useEffect } from 'react';
-import SendDataContext from '@/context/send-data-context';
-import RightArrow from '@/components/icons/RightArrow';
-import LeftArrow from '@/components/icons/LeftArrow';
-import { useNavigate } from 'react-router-dom';
+import RegisterNow from '/src/pages/VaccinationPage/components/form/feedback/RegisterNow';
+import WhatAreYouWaitingFor from '/src/pages/VaccinationPage/components/form/WhatAreYouWaitingFor';
+import DoNotPlan from '/src/pages/VaccinationPage/components/form/feedback/DoNotPlan';
+import PlanToVaccinate from '/src/pages/VaccinationPage/components/form/feedback/PlanToVaccinate';
+import RightArrow from '@/components/icons/RightArrow.jsx';
+import LeftArrow from '@/components/icons/LeftArrow.jsx';
+import { useVaccinationPageForm } from '@/pages/VaccinationPage/components/form/useVaccinationPageForm';
 
 const Form = () => {
-  const navigate = useNavigate();
-  const {
-    vaccination: { setHaveVaccination, setStage, setWhatAreYouWaitingFor },
-  } = useContext(SendDataContext);
-  const ctx = useContext(SendDataContext);
   const {
     register,
     handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      haveVaccination: localStorage.getItem('haveVaccination') || '',
-      stage: localStorage.getItem('stage') || '',
-      whatAreYouWaitingFor: localStorage.getItem('whatAreYouWaitingFor') || '',
-    },
-  });
-  const watchHaveVaccination = useWatch({
-    control,
-    name: 'haveVaccination',
-  });
-  const watchStage = useWatch({
-    control,
-    name: 'stage',
-  });
-  const watchWhatAreYouWaitingFor = useWatch({
-    control,
-    name: 'whatAreYouWaitingFor',
-  });
-
-  useEffect(() => {
-    localStorage.setItem('haveVaccination', watchHaveVaccination);
-    localStorage.setItem('stage', watchStage);
-    localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor);
-
-    setHaveVaccination(watchHaveVaccination);
-    setStage(watchStage);
-    setWhatAreYouWaitingFor(watchWhatAreYouWaitingFor);
-  }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor]);
-
+    errors,
+    watchHaveVaccination,
+    watchStage,
+    watchWhatAreYouWaitingFor,
+    navigateLeft,
+    navigateRight,
+  } = useVaccinationPageForm();
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        localStorage.setItem('page', '4');
-        navigate('/tips', { replace: true });
-      })}
-    >
+    <form onSubmit={handleSubmit(navigateRight)}>
       <HaveVaccination register={register} />
       <ErrorMessage
         errors={errors}
         name='haveVaccination'
         render={({ message }) => (
-          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
             {message}
           </p>
         )}
@@ -76,7 +38,7 @@ const Form = () => {
           errors={errors}
           name='stage'
           render={({ message }) => (
-            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
               {message}
             </p>
           )}
@@ -92,7 +54,7 @@ const Form = () => {
           errors={errors}
           name='whatAreYouWaitingFor'
           render={({ message }) => (
-            <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
               {message}
             </p>
           )}
@@ -108,11 +70,7 @@ const Form = () => {
       </button>
       <div
         className='absolute left-[50%] bottom-[5%] cursor-pointer'
-        onClick={() => {
-          localStorage.setItem('from', 'right');
-          localStorage.setItem('page', '2');
-          navigate('/covid-questionnaire', { replace: true });
-        }}
+        onClick={navigateLeft}
       >
         <LeftArrow />
       </div>
