@@ -1,21 +1,16 @@
 import { ErrorMessage } from '@hookform/error-message';
-import RightArrow from '@/components/icons/RightArrow';
-import { useIdentityPageForm } from '@/pages/IdentityPage/components/form/useIdentityPageForm';
+import RightArrow from '@/components/icons/RightArrow.jsx';
+import { useIdentityPageForm } from '@/pages/IdentityPage/components/form/useIdentityPageForm.jsx';
+import InputTypeText from '@/components/form/InputTypeText';
 
 const Form = () => {
-  const { register, handleSubmit, errors, navigate, navigateRight } =
+  const { register, handleSubmit, errors, navigateRight } =
     useIdentityPageForm();
 
   return (
     <form onSubmit={handleSubmit(navigateRight)}>
-      <label
-        htmlFor='name'
-        className='block text-[1.4rem] font-bold text-dark-100 mt-[2.5rem]'
-      >
-        სახელი*
-      </label>
-      <input
-        {...register('name', {
+      <InputTypeText
+        register={register('name', {
           required: 'სახელის ველის შევსება სავალდებულოა',
           minLength: {
             value: 2,
@@ -23,26 +18,21 @@ const Form = () => {
           },
         })}
         id='name'
+        key='name'
         placeholder='იოსებ'
-        className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
+        labelContent='სახელი*'
       />
       <ErrorMessage
         errors={errors}
         name='name'
         render={({ message }) => (
-          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
             {message}
           </p>
         )}
       />
-      <label
-        htmlFor='last-name'
-        className='block text-[1.4rem] mt-[2.5rem] font-bold text-dark-100'
-      >
-        გვარი*
-      </label>
-      <input
-        {...register('lastName', {
+      <InputTypeText
+        register={register('lastName', {
           required: 'გვარის ველის შევსება სავალდებულოა',
           minLength: {
             value: 2,
@@ -50,26 +40,21 @@ const Form = () => {
           },
         })}
         id='last-name'
+        key='last-name'
         placeholder='ჯუღაშვილი'
-        className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
+        labelContent='გვარი*'
       />
       <ErrorMessage
         errors={errors}
         name='lastName'
         render={({ message }) => (
-          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
             {message}
           </p>
         )}
       />
-      <label
-        htmlFor='email'
-        className='block text-[1.4rem] mt-[2.5rem] font-bold text-dark-100'
-      >
-        მეილი*
-      </label>
-      <input
-        {...register('email', {
+      <InputTypeText
+        register={register('email', {
           required: 'ემაილის ველის შევსება სავალდებულოა',
           pattern: {
             value: /^[\w.+\-]+@redberry\.ge$/,
@@ -78,15 +63,16 @@ const Form = () => {
           },
         })}
         id='email'
+        key='email'
         placeholder='fbi@redberry.ge'
-        className='placeholder-gray-500 placeholder-4 placeholder-base text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[0.5rem] border-2 border-border-gray pl-[24px]'
+        labelContent='მეილი*'
       />
 
       <ErrorMessage
         errors={errors}
         name='email'
         render={({ message }) => (
-          <p className='absolute mt-2 ml-4 font-normal text-base text-text-error'>
+          <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
             {message}
           </p>
         )}
