@@ -1,7 +1,5 @@
-import { RightArrow } from '@/components';
+import { RightArrow, InputTypeText, Error } from '@/components';
 import { useIdentityPageForm } from './useIdentityPageForm';
-import { InputTypeText } from '@/components';
-import { Error } from '@/components';
 
 const Form = () => {
   const { form, handleSubmit, errors, navigateRight, FormProvider } =

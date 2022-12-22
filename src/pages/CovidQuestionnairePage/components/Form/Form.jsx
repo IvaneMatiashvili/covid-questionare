@@ -4,9 +4,7 @@ import HaveAntibodies from './HaveAntibodies';
 import CovidSicknessDate from './CovidSicknessDate';
 import 'react-datepicker/dist/react-datepicker.css';
 import TestAndAntibodies from './TestAndAntibodies';
-import { RightArrow } from '@/components';
-import { LeftArrow } from '@/components';
-import { Error } from '@/components';
+import { RightArrow, LeftArrow, Error } from '@/components';
 import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm';
 
 const Form = () => {

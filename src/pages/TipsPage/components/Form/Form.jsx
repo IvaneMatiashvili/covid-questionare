@@ -2,8 +2,7 @@ import MeetingField from './MeetingField';
 import WorkInOfficeField from './WorkInOfficeField';
 import PhysicalMeetingsField from './PhysicalMeetingsField';
 import WhatWouldYouChangeField from './WhatWouldYouChangeField';
-import { LeftArrow } from '@/components';
-import { Error } from '@/components';
+import { LeftArrow, Error } from '@/components';
 import { useTipsPageForm } from './useTipsPageForm';
 
 const Form = () => {

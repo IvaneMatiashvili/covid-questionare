@@ -4,9 +4,7 @@ import { RegisterNow } from './feedback';
 import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
 import { DoNotPlan } from './feedback';
 import { PlanToVaccinate } from './feedback';
-import { RightArrow } from '@/components';
-import { LeftArrow } from '@/components';
-import { Error } from '@/components';
+import { RightArrow, LeftArrow, Error } from '@/components';
 import { useVaccinationPageForm } from './useVaccinationPageForm';
 
 const Form = () => {
