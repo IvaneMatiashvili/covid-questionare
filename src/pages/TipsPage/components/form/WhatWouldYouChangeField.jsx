@@ -1,6 +1,6 @@
 import Textarea from '@/components/form/Textarea';
 
-const WhatWouldYouChangeField = (props) => {
+const WhatWouldYouChangeField = () => {
   return (
     <>
       <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-[2.5rem]'>
@@ -12,7 +12,7 @@ const WhatWouldYouChangeField = (props) => {
       <Textarea
         key='what-would-you-change'
         id='what-would-you-change'
-        register={props.register('whatWouldYouChangeField')}
+        name='what_would_you_change_field'
       ></Textarea>
     </>
   );

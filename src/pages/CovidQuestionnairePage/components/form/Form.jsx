@@ -11,7 +11,8 @@ import { useCovidQuestionnairePageForm } from '@/pages/CovidQuestionnairePage/co
 
 const Form = () => {
   const {
-    register,
+    form,
+    FormProvider,
     handleSubmit,
     errors,
     watchCovidSicknessDate,
@@ -23,66 +24,66 @@ const Form = () => {
     navigateRight,
   } = useCovidQuestionnairePageForm();
   return (
-    <form onSubmit={handleSubmit(navigateRight)}>
-      <HaveCovid register={register} />
-      <ErrorMessage
-        errors={errors}
-        name='haveCovid'
-        render={({ message }) => (
-          <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
-            {message}
-          </p>
+    <FormProvider {...form}>
+      <form onSubmit={handleSubmit(navigateRight)}>
+        <HaveCovid />
+        <ErrorMessage
+          errors={errors}
+          name='have_covid'
+          render={({ message }) => (
+            <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
+        {watchHaveCovid === 'yes' && <HaveAntibodies />}
+        {watchHaveCovid === 'yes' && (
+          <ErrorMessage
+            errors={errors}
+            name='have_antibodies'
+            render={({ message }) => (
+              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
+                {message}
+              </p>
+            )}
+          />
         )}
-      />
-      {watchHaveCovid === 'yes' && <HaveAntibodies register={register} />}
-      {watchHaveCovid === 'yes' && (
-        <ErrorMessage
-          errors={errors}
-          name='haveAntibodies'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
-        />
-      )}
-      {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
-        <CovidSicknessDate
-          register={register}
-          watch={watchCovidSicknessDate}
-          controller={Controller}
-          control={control}
-        />
-      )}
-      {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
-        <ErrorMessage
-          errors={errors}
-          name='covidSicknessDate'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
-        />
-      )}
-      {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (
-        <TestAndAntibodies
-          register={register}
-          watch={watchTestDate}
-          controller={Controller}
-          control={control}
-        />
-      )}
-      <button type='submit' className='absolute left-[55%] bottom-[5%]'>
-        <RightArrow />
-      </button>
-      <div
-        className='absolute left-[50%] bottom-[5%] cursor-pointer'
-        onClick={navigateLeft}
-      >
-        <LeftArrow />
-      </div>
-    </form>
+        {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
+          <CovidSicknessDate
+            watch={watchCovidSicknessDate}
+            controller={Controller}
+            control={control}
+          />
+        )}
+        {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
+          <ErrorMessage
+            errors={errors}
+            name='covid_sicknessDate'
+            render={({ message }) => (
+              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
+                {message}
+              </p>
+            )}
+          />
+        )}
+        {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (
+          <TestAndAntibodies
+            watch={watchTestDate}
+            controller={Controller}
+            control={control}
+          />
+        )}
+        <button type='submit' className='absolute left-[55%] bottom-[5%]'>
+          <RightArrow />
+        </button>
+        <div
+          className='absolute left-[50%] bottom-[5%] cursor-pointer'
+          onClick={navigateLeft}
+        >
+          <LeftArrow />
+        </div>
+      </form>
+    </FormProvider>
   );
 };
 

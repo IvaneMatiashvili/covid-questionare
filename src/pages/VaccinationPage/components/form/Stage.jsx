@@ -1,6 +1,6 @@
 import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 
-const Stage = (props) => {
+const Stage = () => {
   return (
     <div className='mt-[2.6rem]'>
       <p className='font-arial font-bold text-[1.3rem] text-dark-100'>
@@ -11,25 +11,21 @@ const Stage = (props) => {
           key='stage-first'
           id='stage-first'
           value='first_dosage_and_registered_on_the_second'
-          register={props.register('stage')}
+          name='stage'
           labelContent='პირველი დოზა და დარეგისტრირებული ვარ მეორეზე'
         />
         <InputRadioAndLabel
           key='Stage-full'
           id='Stage-full'
           value='fully_vaccinated'
-          register={props.register('stage', {
-            required: 'გთხოვთ მონიშნეთ პასუხი',
-          })}
+          name={'stage'}
           labelContent='სრულად აცრილი ვარ'
         />
         <InputRadioAndLabel
           key='second-not'
           id='second-not'
           value='first_dosage_and_not_registered_yet'
-          register={props.register('stage', {
-            required: 'გთხოვთ მონიშნეთ პასუხი',
-          })}
+          name='stage'
           labelContent='პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე'
         />
       </div>

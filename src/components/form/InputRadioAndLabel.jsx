@@ -1,11 +1,16 @@
-const InputRadioAndLabel = ({ id, register, value, labelContent }) => {
+import { useFormContext } from 'react-hook-form';
+
+const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
+  const { register } = useFormContext();
   return (
     <div className='flex justify-start items-center ml-[1.25rem] mt-[1rem]'>
       <input
+        {...register(name, {
+          required: 'გთხოვთ მონიშნეთ პასუხი',
+        })}
         id={id}
         type='radio'
         value={value}
-        {...register}
         className='w-[1.3rem] h-[1.3rem]'
       />
       <label

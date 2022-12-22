@@ -1,12 +1,9 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useFormContext } from 'react-hook-form';
 
-const CovidSicknessDate = ({
-  controller: Controller,
-  register,
-  watch,
-  control,
-}) => {
+const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
+  const { register } = useFormContext();
   return (
     <>
       <label
@@ -19,7 +16,7 @@ const CovidSicknessDate = ({
       <Controller
         id='covid-sickness-date'
         control={control}
-        name='covidSicknessDate'
+        name='covid_sicknessDate'
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <DatePicker
             placeholderText={'დდ/თთ/წწ'}
@@ -28,7 +25,7 @@ const CovidSicknessDate = ({
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
-            ref-setter={register('covidSicknessDate', {
+            ref-setter={register('covid_sicknessDate', {
               required: {
                 value: true,
                 message: 'გთხოვთ აირჩით თარიღი',

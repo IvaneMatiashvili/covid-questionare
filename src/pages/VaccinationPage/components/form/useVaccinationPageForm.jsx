@@ -1,36 +1,34 @@
 import { useNavigate } from 'react-router-dom';
 import SendDataContext from '@/context/send-data-context';
 import { useContext, useEffect } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm, useWatch, FormProvider } from 'react-hook-form';
 
 export const useVaccinationPageForm = () => {
   const navigate = useNavigate();
   const {
     vaccination: { setHaveVaccination, setStage, setWhatAreYouWaitingFor },
   } = useContext(SendDataContext);
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+
+  const form = useForm({
     defaultValues: {
-      haveVaccination: localStorage.getItem('haveVaccination') || '',
+      have_vaccination: localStorage.getItem('haveVaccination') || '',
       stage: localStorage.getItem('stage') || '',
-      whatAreYouWaitingFor: localStorage.getItem('whatAreYouWaitingFor') || '',
+      what_are_you_waiting_for:
+        localStorage.getItem('whatAreYouWaitingFor') || '',
     },
   });
+  const { errors } = form.formState;
   const watchHaveVaccination = useWatch({
-    control,
-    name: 'haveVaccination',
+    control: form.control,
+    name: 'have_vaccination',
   });
   const watchStage = useWatch({
-    control,
+    control: form.control,
     name: 'stage',
   });
   const watchWhatAreYouWaitingFor = useWatch({
-    control,
-    name: 'whatAreYouWaitingFor',
+    control: form.control,
+    name: 'what_are_you_waiting_for',
   });
 
   const navigateLeft = () => {
@@ -55,9 +53,10 @@ export const useVaccinationPageForm = () => {
   }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor]);
 
   return {
-    register,
+    form,
+    FormProvider,
     errors,
-    handleSubmit,
+    handleSubmit: form.handleSubmit,
     watchHaveVaccination,
     watchStage,
     watchWhatAreYouWaitingFor,

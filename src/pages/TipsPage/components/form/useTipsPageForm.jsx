@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import SendDataContext from '@/context/send-data-context';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm, useWatch, FormProvider } from 'react-hook-form';
 import { useContext, useEffect } from 'react';
 import getRegisterRequest from '@/services/index.js';
 
@@ -28,36 +28,34 @@ export const useTipsPageForm = () => {
     },
   } = useContext(SendDataContext);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const form = useForm({
     defaultValues: {
-      meetingField: localStorage.getItem('meetingField') || '',
-      workInOfficeField: localStorage.getItem('workInOfficeField') || '',
-      physicalMeetingsField:
+      meeting_field: localStorage.getItem('meetingField') || '',
+      work_in_office_field: localStorage.getItem('workInOfficeField') || '',
+      physical_meetings_field:
         localStorage.getItem('physicalMeetingsField') || '',
-      whatWouldYouChangeField:
+      what_would_you_change_field:
         localStorage.getItem('whatWouldYouChangeField') || '',
     },
   });
+
+  const { errors } = form.formState;
+
   const watchMeetingField = useWatch({
-    control,
-    name: 'meetingField',
+    control: form.control,
+    name: 'meeting_field',
   });
   const watchWorkInOfficeField = useWatch({
-    control,
-    name: 'workInOfficeField',
+    control: form.control,
+    name: 'work_in_office_field',
   });
   const watchPhysicalMeetingsField = useWatch({
-    control,
-    name: 'physicalMeetingsField',
+    control: form.control,
+    name: 'physical_meetings_field',
   });
   const watchWhatWouldYouChangeField = useWatch({
-    control,
-    name: 'whatWouldYouChangeField',
+    control: form.control,
+    name: 'what_would_you_change_field',
   });
   const navigateLeft = () => {
     localStorage.setItem('from', 'right');
@@ -108,9 +106,10 @@ export const useTipsPageForm = () => {
   ]);
 
   return {
-    register,
+    form,
+    FormProvider,
     errors,
-    handleSubmit,
+    handleSubmit: form.handleSubmit,
     submit,
     navigateLeft,
   };

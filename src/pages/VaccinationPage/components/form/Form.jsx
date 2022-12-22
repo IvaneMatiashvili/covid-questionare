@@ -11,7 +11,8 @@ import { useVaccinationPageForm } from '@/pages/VaccinationPage/components/form/
 
 const Form = () => {
   const {
-    register,
+    form,
+    FormProvider,
     handleSubmit,
     errors,
     watchHaveVaccination,
@@ -21,60 +22,62 @@ const Form = () => {
     navigateRight,
   } = useVaccinationPageForm();
   return (
-    <form onSubmit={handleSubmit(navigateRight)}>
-      <HaveVaccination register={register} />
-      <ErrorMessage
-        errors={errors}
-        name='haveVaccination'
-        render={({ message }) => (
-          <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-            {message}
-          </p>
+    <FormProvider {...form}>
+      <form onSubmit={handleSubmit(navigateRight)}>
+        <HaveVaccination />
+        <ErrorMessage
+          errors={errors}
+          name='have_vaccination'
+          render={({ message }) => (
+            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
+              {message}
+            </p>
+          )}
+        />
+        {watchHaveVaccination === 'yes' && <Stage />}
+        {watchHaveVaccination === 'yes' && (
+          <ErrorMessage
+            errors={errors}
+            name='stage'
+            render={({ message }) => (
+              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
+                {message}
+              </p>
+            )}
+          />
         )}
-      />
-      {watchHaveVaccination === 'yes' && <Stage register={register} />}
-      {watchHaveVaccination === 'yes' && (
-        <ErrorMessage
-          errors={errors}
-          name='stage'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
+        {watchHaveVaccination === 'yes' &&
+          watchStage === 'first_dosage_and_not_registered_yet' && (
+            <RegisterNow />
           )}
-        />
-      )}
-      {watchHaveVaccination === 'yes' &&
-        watchStage === 'first_dosage_and_not_registered_yet' && <RegisterNow />}
-      {watchHaveVaccination === 'no' && (
-        <WhatAreYouWaitingFor register={register} />
-      )}
-      {watchHaveVaccination === 'no' && (
-        <ErrorMessage
-          errors={errors}
-          name='whatAreYouWaitingFor'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
-        />
-      )}
-      {watchHaveVaccination === 'no' &&
-        watchWhatAreYouWaitingFor === 'not_planning' && <DoNotPlan />}
-      {watchHaveVaccination === 'no' &&
-        watchWhatAreYouWaitingFor ===
-          'had_covid_and_planning_to_be_vaccinated' && <PlanToVaccinate />}
-      <button type='submit' className='absolute left-[55%] bottom-[5%]'>
-        <RightArrow />
-      </button>
-      <div
-        className='absolute left-[50%] bottom-[5%] cursor-pointer'
-        onClick={navigateLeft}
-      >
-        <LeftArrow />
-      </div>
-    </form>
+        {watchHaveVaccination === 'no' && <WhatAreYouWaitingFor />}
+        {watchHaveVaccination === 'no' && (
+          <ErrorMessage
+            errors={errors}
+            name='what_are_you_waiting_for'
+            render={({ message }) => (
+              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
+                {message}
+              </p>
+            )}
+          />
+        )}
+        {watchHaveVaccination === 'no' &&
+          watchWhatAreYouWaitingFor === 'not_planning' && <DoNotPlan />}
+        {watchHaveVaccination === 'no' &&
+          watchWhatAreYouWaitingFor ===
+            'had_covid_and_planning_to_be_vaccinated' && <PlanToVaccinate />}
+        <button type='submit' className='absolute left-[55%] bottom-[5%]'>
+          <RightArrow />
+        </button>
+        <div
+          className='absolute left-[50%] bottom-[5%] cursor-pointer'
+          onClick={navigateLeft}
+        >
+          <LeftArrow />
+        </div>
+      </form>
+    </FormProvider>
   );
 };
 

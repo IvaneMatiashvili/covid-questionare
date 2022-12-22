@@ -1,6 +1,6 @@
 import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 
-const HaveCovid = (props) => {
+const HaveCovid = () => {
   return (
     <>
       <div className='mt-[2.6rem]'>
@@ -9,26 +9,24 @@ const HaveCovid = (props) => {
         </p>
         <div className='flex flex-col'>
           <InputRadioAndLabel
+            name='have_covid'
             key='covid-yes'
             id='covid-yes'
             value='yes'
-            register={props.register('haveCovid')}
             labelContent='კი'
           />
           <InputRadioAndLabel
+            name='have_covid'
             key='covid-no'
             id='covid-no'
             value='no'
-            register={props.register('haveCovid')}
             labelContent='არა'
           />
           <InputRadioAndLabel
+            name='have_covid'
             key='covid-now'
             id='covid-now'
             value='now'
-            register={props.register('haveCovid', {
-              required: 'გთხოვთ მონიშნეთ პასუხი',
-            })}
             labelContent='ახლა მაქვს'
           />
         </div>

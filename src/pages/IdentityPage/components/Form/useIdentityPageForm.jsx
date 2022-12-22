@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import SendDataContext from '@/context/send-data-context';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm, useWatch, FormProvider } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export const useIdentityPageForm = () => {
@@ -9,28 +9,26 @@ export const useIdentityPageForm = () => {
     identity: { setName, setLastName, setEmail },
   } = useContext(SendDataContext);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const form = useForm({
     defaultValues: {
       name: localStorage.getItem('name') || '',
-      lastName: localStorage.getItem('lastName') || '',
+      last_name: localStorage.getItem('lastName') || '',
       email: localStorage.getItem('email') || '',
     },
   });
+
+  const { errors } = form.formState;
+
   const watchName = useWatch({
-    control,
+    control: form.control,
     name: 'name',
   });
   const watchLastName = useWatch({
-    control,
-    name: 'lastName',
+    control: form.control,
+    name: 'last_name',
   });
   const watchEmail = useWatch({
-    control,
+    control: form.control,
     name: 'email',
   });
 
@@ -50,10 +48,11 @@ export const useIdentityPageForm = () => {
     setEmail(watchEmail);
   }, [watchName, watchLastName, watchEmail]);
   return {
-    register,
-    handleSubmit,
+    form,
+    handleSubmit: form.handleSubmit,
     errors,
     navigate,
     navigateRight,
+    FormProvider,
   };
 };

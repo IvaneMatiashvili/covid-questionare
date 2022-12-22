@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import SendDataContext from '@/context/send-data-context';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm, useWatch, FormProvider } from 'react-hook-form';
 
 export const useCovidQuestionnairePageForm = () => {
   const navigate = useNavigate();
@@ -15,49 +15,45 @@ export const useCovidQuestionnairePageForm = () => {
     },
   } = useContext(SendDataContext);
 
-  const ctx = useContext(SendDataContext);
-
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const form = useForm({
     defaultValues: {
-      haveCovid: localStorage.getItem('haveCovid') || '',
-      haveAntibodies: localStorage.getItem('haveAntibodies') || '',
-      covidSicknessDate:
+      have_covid: localStorage.getItem('haveCovid') || '',
+      have_antibodies: localStorage.getItem('haveAntibodies') || '',
+      covid_sicknessDate:
         localStorage.getItem('covidSicknessDate') &&
         localStorage.getItem('covidSicknessDate').length > 10
           ? new Date(localStorage.getItem('covidSicknessDate'))
           : '',
-      antibodiesQuantity: localStorage.getItem('antibodiesQuantity') || '',
-      testDate:
+      antibodies_quantity: localStorage.getItem('antibodiesQuantity') || '',
+      test_date:
         localStorage.getItem('testDate') &&
         localStorage.getItem('testDate').length > 10
           ? new Date(localStorage.getItem('testDate'))
           : '',
     },
   });
+
+  const { errors } = form.formState;
+
   const watchHaveCovid = useWatch({
-    control,
-    name: 'haveCovid',
+    control: form.control,
+    name: 'have_covid',
   });
   const watchHaveAntibodies = useWatch({
-    control,
-    name: 'haveAntibodies',
+    control: form.control,
+    name: 'have_antibodies',
   });
   const watchCovidSicknessDate = useWatch({
-    control,
-    name: 'covidSicknessDate',
+    control: form.control,
+    name: 'covid_sicknessDate',
   });
   const watchAntibodiesQuantity = useWatch({
-    control,
-    name: 'antibodiesQuantity',
+    control: form.control,
+    name: 'antibodies_quantity',
   });
   const watchTestDate = useWatch({
-    control,
-    name: 'testDate',
+    control: form.control,
+    name: 'test_date',
   });
 
   const navigateLeft = () => {
@@ -71,6 +67,7 @@ export const useCovidQuestionnairePageForm = () => {
   };
 
   useEffect(() => {
+    console.log(watchHaveCovid);
     localStorage.setItem('haveCovid', watchHaveCovid);
     localStorage.setItem('haveAntibodies', watchHaveAntibodies);
     localStorage.setItem('antibodiesQuantity', watchAntibodiesQuantity);
@@ -91,15 +88,16 @@ export const useCovidQuestionnairePageForm = () => {
   ]);
 
   return {
-    register,
-    handleSubmit,
+    form,
+    FormProvider,
+    handleSubmit: form.handleSubmit,
     errors,
     watchHaveCovid,
     watchHaveAntibodies,
     watchAntibodiesQuantity,
     watchCovidSicknessDate,
     watchTestDate,
-    control,
+    control: form.control,
     navigateLeft,
     navigateRight,
   };

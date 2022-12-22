@@ -9,7 +9,7 @@ const PhysicalMeetingsField = (props) => {
       <Textarea
         key='physical-meetings'
         id='physical-meetings'
-        register={props.register('physicalMeetingsField')}
+        name='physical_meetings_field'
       ></Textarea>
     </>
   );

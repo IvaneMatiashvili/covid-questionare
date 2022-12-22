@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import Form from '@/pages/IdentityPage/components/form/Form';
+import { Form } from './components';
 import useRedirectToCurrentPage from '@/hooks/use-redirect-to-current-page';
 import '@/css/identity-page-animatiom.css';
 

@@ -1,15 +1,12 @@
 import DatePicker from 'react-datepicker';
+import { useFormContext } from 'react-hook-form';
 
-const TestAndAntibodies = ({
-  controller: Controller,
-  register,
-  watch,
-  control,
-}) => {
+const TestAndAntibodies = ({ controller: Controller, watch, control }) => {
+  const { register } = useFormContext();
   return (
     <>
       <label
-        htmlFor='AntibodiesQuantity'
+        htmlFor='test-date'
         className='block font-arial text-[1.4rem] font-bold text-dark-100 mt-[2.5rem]'
       >
         თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების
@@ -17,10 +14,10 @@ const TestAndAntibodies = ({
       </label>
 
       <Controller
-        id='testDate'
+        id='test-date'
         control={control}
-        name='testDate'
-        render={({ field: { onChange, onBlur, value, ref } }) => (
+        name='test_date'
+        render={({ field: { onChange, onBlur } }) => (
           <DatePicker
             placeholderText={'რიცხვი'}
             dateFormat='dd/MM/yyyy'
@@ -28,12 +25,12 @@ const TestAndAntibodies = ({
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
-            ref-setter={register('testDate')}
+            ref-setter={register('test_date')}
           />
         )}
       />
       <input
-        {...register('antibodiesQuantity')}
+        {...register('antibodies_quantity')}
         type='number'
         id='AntibodiesQuantity'
         placeholder='ანტისხეულების რაოდენობა'

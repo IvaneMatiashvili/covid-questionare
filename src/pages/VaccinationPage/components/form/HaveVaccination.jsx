@@ -1,6 +1,6 @@
 import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
 
-const HaveVaccination = (props) => {
+const HaveVaccination = () => {
   return (
     <div className='mt-[2.6rem]'>
       <p className='font-arial font-bold text-[1.3rem] text-dark-100'>
@@ -11,16 +11,14 @@ const HaveVaccination = (props) => {
           key='vaccination-yes'
           id='vaccination-yes'
           value='yes'
-          register={props.register('haveVaccination')}
+          name='have_vaccination'
           labelContent='კი'
         />
         <InputRadioAndLabel
           key='vaccination-no'
           id='vaccination-no'
           value='no'
-          register={props.register('haveVaccination', {
-            required: 'გთხოვთ მონიშნეთ პასუხი',
-          })}
+          name='have_vaccination'
           labelContent='არა'
         />
       </div>
