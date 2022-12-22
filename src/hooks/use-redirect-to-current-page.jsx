@@ -3,13 +3,8 @@ import { useEffect } from 'react';
 
 const useRedirectToCurrentPage = () => {
   const navigate = useNavigate();
-  let currentPage;
-
+  let currentPage = localStorage.getItem('page') || '/';
   useEffect(() => {
-    localStorage.getItem('page')
-      ? (currentPage = localStorage.getItem('page'))
-      : (currentPage = '/');
-
     navigate(currentPage);
   }, []);
 };
