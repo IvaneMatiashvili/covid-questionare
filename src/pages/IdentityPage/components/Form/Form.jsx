@@ -1,4 +1,3 @@
-import { ErrorMessage } from '@hookform/error-message';
 import { RightArrow } from '@/components';
 import { useIdentityPageForm } from './useIdentityPageForm';
 import { InputTypeText } from '@/components';
@@ -16,8 +15,8 @@ const Form = () => {
           erorrs={{
             required: 'სახელის ველის შევსება სავალდებულოა',
             minLength: {
-              value: 2,
-              message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+              value: 3,
+              message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
             },
           }}
           id='name'
@@ -25,18 +24,14 @@ const Form = () => {
           placeholder='იოსებ'
           labelContent='სახელი*'
         />
-        <ErrorMessage
-          errors={errors}
-          name='name'
-          render={({ message }) => <Error message={message} />}
-        />
+        <Error errors={errors} name='name' />
         <InputTypeText
           name='last_name'
           erorrs={{
             required: 'გვარის ველის შევსება სავალდებულოა',
             minLength: {
-              value: 2,
-              message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+              value: 3,
+              message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
             },
           }}
           id='last-name'
@@ -44,11 +39,7 @@ const Form = () => {
           placeholder='ჯუღაშვილი'
           labelContent='გვარი*'
         />
-        <ErrorMessage
-          errors={errors}
-          name='last_name'
-          render={({ message }) => <Error message={message} />}
-        />
+        <Error errors={errors} name='last_name' />
         <InputTypeText
           name='email'
           erorrs={{
@@ -65,11 +56,7 @@ const Form = () => {
           labelContent='მეილი*'
         />
 
-        <ErrorMessage
-          errors={errors}
-          name='email'
-          render={({ message }) => <Error message={message} />}
-        />
+        <Error errors={errors} name='email' />
         <button type='submit' className='absolute left-[55%] bottom-[5%]'>
           <RightArrow />
         </button>

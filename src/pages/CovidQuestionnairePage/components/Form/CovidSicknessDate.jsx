@@ -8,7 +8,7 @@ const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
     <>
       <label
         htmlFor='covid-sickness-date'
-        className='block text-[1.4rem] font-arial font-bold text-dark-100 mt-[2.5rem]'
+        className='block text-[1.4rem] font-arial font-bold text-dark-100 mt-10'
       >
         მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*
       </label>
@@ -21,7 +21,7 @@ const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
           <DatePicker
             placeholderText={'დდ/თთ/წწ'}
             dateFormat='dd/MM/yyyy'
-            className='placeholder-gray-500 placeholder-4 placeholder-base font-arial text-dark-100 font-normal text-[1rem] bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-[1.5rem] ml-[1.25rem] border-2 border-border-gray pl-[24px]'
+            className='placeholder-gray-500 placeholder-4 placeholder-base font-arial text-dark-100 font-normal text-base bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-6 ml-5 border-2 border-border-gray pl-6'
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}

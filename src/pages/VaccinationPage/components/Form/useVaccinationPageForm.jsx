@@ -33,12 +33,12 @@ export const useVaccinationPageForm = () => {
 
   const navigateLeft = () => {
     localStorage.setItem('from', 'right');
-    localStorage.setItem('page', '2');
+    localStorage.setItem('page', '/covid-questionnaire');
     navigate('/covid-questionnaire', { replace: true });
   };
   const navigateRight = () => {
     localStorage.setItem('from', 'left');
-    localStorage.setItem('page', '4');
+    localStorage.setItem('page', '/tips');
     navigate('/tips', { replace: true });
   };
 

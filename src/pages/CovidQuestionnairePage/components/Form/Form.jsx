@@ -1,5 +1,4 @@
 import { Controller } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
 import HaveCovid from './HaveCovid';
 import HaveAntibodies from './HaveAntibodies';
 import CovidSicknessDate from './CovidSicknessDate';
@@ -28,18 +27,10 @@ const Form = () => {
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(navigateRight)}>
         <HaveCovid />
-        <ErrorMessage
-          errors={errors}
-          name='have_covid'
-          render={({ message }) => <Error message={message} />}
-        />
+        <Error errors={errors} name='have_covid' />
         {watchHaveCovid === 'yes' && <HaveAntibodies />}
         {watchHaveCovid === 'yes' && (
-          <ErrorMessage
-            errors={errors}
-            name='have_antibodies'
-            render={({ message }) => <Error message={message} />}
-          />
+          <Error errors={errors} name='have_antibodies' />
         )}
         {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
           <CovidSicknessDate
@@ -49,11 +40,7 @@ const Form = () => {
           />
         )}
         {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
-          <ErrorMessage
-            errors={errors}
-            name='covid_sicknessDate'
-            render={({ message }) => <Error message={message} />}
-          />
+          <Error errors={errors} name='covid_sicknessDate' />
         )}
         {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (
           <TestAndAntibodies
@@ -66,7 +53,7 @@ const Form = () => {
           <RightArrow />
         </button>
         <div
-          className='absolute left-[50%] bottom-[5%] cursor-pointer'
+          className='absolute left-1/2 bottom-[5%] cursor-pointer'
           onClick={navigateLeft}
         >
           <LeftArrow />

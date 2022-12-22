@@ -3,7 +3,7 @@ import { InputRadioAndLabel } from '@/components';
 const WorkInOfficeField = () => {
   return (
     <>
-      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-[2.5rem]'>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-10'>
         კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*
       </p>
       <div className='flex flex-col'>

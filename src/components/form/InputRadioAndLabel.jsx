@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
   const { register } = useFormContext();
   return (
-    <div className='flex justify-start items-center ml-[1.25rem] mt-[1rem]'>
+    <div className='flex justify-start items-center ml-5 mt-4'>
       <input
         {...register(name, {
           required: 'გთხოვთ მონიშნეთ პასუხი',
@@ -15,7 +15,7 @@ const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
       />
       <label
         htmlFor={id}
-        className='ml-2 font-arial font-normal  text-[1.25rem] font-medium text-dark-100'
+        className='ml-2 font-arial font-normal  text-xl font-medium text-dark-100'
       >
         {labelContent}
       </label>

@@ -3,7 +3,7 @@ import { Textarea } from '@/components';
 const WhatWouldYouChangeField = () => {
   return (
     <>
-      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-[2.5rem]'>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-10'>
         რას ფიქრობ არსებულ გარემოზე:
       </p>
       <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem]'>

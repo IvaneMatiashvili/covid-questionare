@@ -26,7 +26,7 @@ const HaveCovid = () => {
             name='have_covid'
             key='covid-now'
             id='covid-now'
-            value='now'
+            value='have_right_now'
             labelContent='ახლა მაქვს'
           />
         </div>

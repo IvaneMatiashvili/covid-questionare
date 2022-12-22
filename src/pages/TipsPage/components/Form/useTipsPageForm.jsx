@@ -58,7 +58,7 @@ export const useTipsPageForm = () => {
     name: 'what_would_you_change_field',
   });
   const navigateLeft = () => {
-    localStorage.setItem('from', 'right');
+    localStorage.setItem('from', '/vaccination');
     localStorage.setItem('page', '3');
     navigate('/vaccination', { replace: true });
   };
@@ -81,7 +81,7 @@ export const useTipsPageForm = () => {
       physicalMeetingsField,
       whatWouldYouChangeField,
     });
-    localStorage.setItem('page', '5');
+    localStorage.setItem('page', '/thank-you');
     navigate('/thank-you', { replace: true });
   };
 

@@ -10,8 +10,8 @@ const IdentityPage = () => {
       <div className='w-[95rem] flex justify-between opacity-animation'>
         <div>
           <Form />
-          <div className='w-[14.8rem] mt-[10rem] h-[1px] bg-dark-100'></div>
-          <p className='mt-[1.25rem] font-arial text-soft-gray font-normal text-base'>
+          <div className='w-[14.8rem] mt-40 h-[1px] bg-dark-100'></div>
+          <p className='mt-5 font-arial text-soft-gray font-normal text-base'>
             *-ით მონიშნული ველების შევსება
           </p>
           <p className='text-soft-gray font-arial font-normal text-base'>
@@ -24,7 +24,7 @@ const IdentityPage = () => {
         />
         <img
           src='/assets/rectangle.png'
-          className='h-[4rem] w-[40rem] absolute left-[50%] top-[33%] identity-logo-left-animation'
+          className='h-16 w-[40rem] absolute left-1/2 top-1/3 identity-logo-left-animation'
         />
       </div>
     </Layout>

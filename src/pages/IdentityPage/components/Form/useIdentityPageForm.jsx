@@ -34,7 +34,7 @@ export const useIdentityPageForm = () => {
 
   const navigateRight = (data) => {
     localStorage.setItem('from', 'left');
-    localStorage.setItem('page', '2');
+    localStorage.setItem('page', '/covid-questionnaire');
     navigate('/covid-questionnaire', { replace: true });
   };
 

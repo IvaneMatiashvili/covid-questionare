@@ -1,6 +1,5 @@
 import HaveVaccination from './HaveVaccination';
 import Stage from './Stage';
-import { ErrorMessage } from '@hookform/error-message';
 import { RegisterNow } from './feedback';
 import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
 import { DoNotPlan } from './feedback';
@@ -26,18 +25,10 @@ const Form = () => {
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(navigateRight)}>
         <HaveVaccination />
-        <ErrorMessage
-          errors={errors}
-          name='have_vaccination'
-          render={({ message }) => <Error message={message} />}
-        />
+        <Error errors={errors} name='have_vaccination' />
         {watchHaveVaccination === 'yes' && <Stage />}
         {watchHaveVaccination === 'yes' && (
-          <ErrorMessage
-            errors={errors}
-            name='stage'
-            render={({ message }) => <Error message={message} />}
-          />
+          <Error errors={errors} name='stage' />
         )}
         {watchHaveVaccination === 'yes' &&
           watchStage === 'first_dosage_and_not_registered_yet' && (
@@ -45,11 +36,7 @@ const Form = () => {
           )}
         {watchHaveVaccination === 'no' && <WhatAreYouWaitingFor />}
         {watchHaveVaccination === 'no' && (
-          <ErrorMessage
-            errors={errors}
-            name='what_are_you_waiting_for'
-            render={({ message }) => <Error message={message} />}
-          />
+          <Error errors={errors} name='what_are_you_waiting_for' />
         )}
         {watchHaveVaccination === 'no' &&
           watchWhatAreYouWaitingFor === 'not_planning' && <DoNotPlan />}
@@ -60,7 +47,7 @@ const Form = () => {
           <RightArrow />
         </button>
         <div
-          className='absolute left-[50%] bottom-[5%] cursor-pointer'
+          className='absolute left-1/2 bottom-[5%] cursor-pointer'
           onClick={navigateLeft}
         >
           <LeftArrow />

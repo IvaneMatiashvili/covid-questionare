@@ -57,12 +57,12 @@ export const useCovidQuestionnairePageForm = () => {
   });
 
   const navigateLeft = () => {
-    localStorage.setItem('page', '1');
+    localStorage.setItem('page', '/identity');
     navigate('/identity', { replace: true });
   };
   const navigateRight = (data) => {
     localStorage.setItem('from', 'left');
-    localStorage.setItem('page', '3');
+    localStorage.setItem('page', '/vaccination');
     navigate('/vaccination', { replace: true });
   };
 

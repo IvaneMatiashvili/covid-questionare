@@ -18,7 +18,7 @@ const CovidQuestionnairePage = () => {
           />
           <img
             src='/assets/circle.png'
-            className={`absolute left-[50%] top-[33%] covid-questionnaire-logo-from-${localStorage.getItem(
+            className={`absolute left-1/2 top-[33%] covid-questionnaire-logo-from-${localStorage.getItem(
               'from'
             )}-animation`}
           />

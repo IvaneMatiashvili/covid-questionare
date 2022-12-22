@@ -17,7 +17,7 @@ const VaccinationPage = () => {
         />
         <img
           src='/assets/star.png'
-          className={`absolute left-[50%] top-[12%] vaccination-logo-from-${localStorage.getItem(
+          className={`absolute left-1/2 top-[12%] vaccination-logo-from-${localStorage.getItem(
             'from'
           )}-animation`}
         />

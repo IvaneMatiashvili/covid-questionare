@@ -57,6 +57,33 @@
     }
 }
 
+.start-questionnaire-container-animation {
+    animation: startQuestionnaireContainerAnimation 2.6s linear;
+}
+
+@keyframes startQuestionnaireContainerAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+        bottom: 5rem;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0.5;
+    }
+}
+
 .start-questionnaire-animation {
     animation: startQuestionnaireAnimation 2.2s linear;
 }

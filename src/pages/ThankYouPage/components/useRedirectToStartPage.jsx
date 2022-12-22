@@ -5,8 +5,9 @@ const useRedirectToStartPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
+      localStorage.clear();
       navigate('/');
-      localStorage.setItem('page', '0');
+      localStorage.setItem('page', '/');
     }, 2500);
   }, []);
 };
