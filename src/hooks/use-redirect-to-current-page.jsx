@@ -6,22 +6,10 @@ const useRedirectToCurrentPage = () => {
   let currentPage;
 
   useEffect(() => {
-    if (localStorage.getItem('page') === '0') {
-      currentPage = '/';
-    } else if (localStorage.getItem('page') === '1') {
-      currentPage = '/identity';
-    } else if (localStorage.getItem('page') === '2') {
-      currentPage = '/covid-questionnaire';
-    } else if (localStorage.getItem('page') === '3') {
-      currentPage = '/vaccination';
-    } else if (localStorage.getItem('page') === '4') {
-      currentPage = '/tips';
-    } else if (localStorage.getItem('page') === '5') {
-      currentPage = '/thank-you';
-    } else {
-      localStorage.setItem('page', '0');
-      currentPage = '/';
-    }
+    localStorage.getItem('page')
+      ? (currentPage = localStorage.getItem('page'))
+      : (currentPage = '/');
+
     navigate(currentPage);
   }, []);
 };
