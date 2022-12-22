@@ -1,4 +1,4 @@
-import { useNavigation } from './useNavigation';
+import { useNavigation } from './useNavigation.js';
 import '@/css/landing-page-animation.css';
 
 const LandingPage = () => {

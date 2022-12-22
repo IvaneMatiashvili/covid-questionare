@@ -5,7 +5,7 @@ import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
 import { DoNotPlan } from './feedback';
 import { PlanToVaccinate } from './feedback';
 import { RightArrow, LeftArrow, Error } from '@/components';
-import { useVaccinationPageForm } from './useVaccinationPageForm';
+import { useVaccinationPageForm } from './useVaccinationPageForm.js';
 
 const Form = () => {
   const {

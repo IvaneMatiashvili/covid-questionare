@@ -1,1 +1,1 @@
-export { default as useRedirectToStartPage } from './useRedirectToStartPage';
+export { default as useRedirectToStartPage } from './useRedirectToStartPage.js';

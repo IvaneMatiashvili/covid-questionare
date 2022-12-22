@@ -5,7 +5,7 @@ import CovidSicknessDate from './CovidSicknessDate';
 import 'react-datepicker/dist/react-datepicker.css';
 import TestAndAntibodies from './TestAndAntibodies';
 import { RightArrow, LeftArrow, Error } from '@/components';
-import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm';
+import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm.js';
 
 const Form = () => {
   const {

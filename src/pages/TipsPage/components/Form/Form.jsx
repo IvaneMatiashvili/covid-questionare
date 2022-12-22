@@ -3,7 +3,7 @@ import WorkInOfficeField from './WorkInOfficeField';
 import PhysicalMeetingsField from './PhysicalMeetingsField';
 import WhatWouldYouChangeField from './WhatWouldYouChangeField';
 import { LeftArrow, Error } from '@/components';
-import { useTipsPageForm } from './useTipsPageForm';
+import { useTipsPageForm } from './useTipsPageForm.js';
 
 const Form = () => {
   const { form, FormProvider, errors, handleSubmit, submit, navigateLeft } =
