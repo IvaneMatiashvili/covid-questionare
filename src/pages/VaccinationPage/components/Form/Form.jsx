@@ -24,20 +24,27 @@ const Form = () => {
       <form onSubmit={handleSubmit(navigateRight)}>
         <HaveVaccination />
         <Error errors={errors} name='have_vaccination' />
+
         {watchHaveVaccination === 'yes' && <Stage />}
+
         {watchHaveVaccination === 'yes' && (
           <Error errors={errors} name='stage' />
         )}
+
         {watchHaveVaccination === 'yes' &&
           watchStage === 'first_dosage_and_not_registered_yet' && (
             <RegisterNow />
           )}
+
         {watchHaveVaccination === 'no' && <WhatAreYouWaitingFor />}
+
         {watchHaveVaccination === 'no' && (
           <Error errors={errors} name='what_are_you_waiting_for' />
         )}
+
         {watchHaveVaccination === 'no' &&
           watchWhatAreYouWaitingFor === 'not_planning' && <DoNotPlan />}
+
         {watchHaveVaccination === 'no' &&
           watchWhatAreYouWaitingFor ===
             'had_covid_and_planning_to_be_vaccinated' && <PlanToVaccinate />}

@@ -14,9 +14,12 @@ const Form = () => {
         <div className='mt-[2.6rem] mb-32'>
           <MeetingField />
           <Error errors={errors} name='meeting_field' />
+
           <WorkInOfficeField />
           <Error errors={errors} name='work_in_office_field' />
+
           <PhysicalMeetingsField />
+
           <WhatWouldYouChangeField />
           <div className='w-[38rem] flex justify-end mt-10'>
             <button

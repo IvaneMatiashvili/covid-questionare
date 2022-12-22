@@ -22,7 +22,9 @@ const Form = () => {
           placeholder='იოსებ'
           labelContent='სახელი*'
         />
+
         <Error errors={errors} name='name' />
+
         <InputTypeText
           name='last_name'
           erorrs={{
@@ -37,7 +39,9 @@ const Form = () => {
           placeholder='ჯუღაშვილი'
           labelContent='გვარი*'
         />
+
         <Error errors={errors} name='last_name' />
+
         <InputTypeText
           name='email'
           erorrs={{
@@ -55,6 +59,7 @@ const Form = () => {
         />
 
         <Error errors={errors} name='email' />
+
         <button type='submit' className='absolute left-[55%] bottom-[5%]'>
           <RightArrow />
         </button>

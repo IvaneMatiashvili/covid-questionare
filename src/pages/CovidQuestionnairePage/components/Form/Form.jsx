@@ -25,11 +25,13 @@ const Form = () => {
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(navigateRight)}>
         <HaveCovid />
+
         <Error errors={errors} name='have_covid' />
         {watchHaveCovid === 'yes' && <HaveAntibodies />}
         {watchHaveCovid === 'yes' && (
           <Error errors={errors} name='have_antibodies' />
         )}
+
         {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
           <CovidSicknessDate
             watch={watchCovidSicknessDate}
@@ -37,9 +39,11 @@ const Form = () => {
             control={control}
           />
         )}
+
         {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
           <Error errors={errors} name='covid_sicknessDate' />
         )}
+
         {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (
           <TestAndAntibodies
             watch={watchTestDate}
@@ -47,6 +51,7 @@ const Form = () => {
             control={control}
           />
         )}
+
         <button type='submit' className='absolute left-[55%] bottom-[5%]'>
           <RightArrow />
         </button>
