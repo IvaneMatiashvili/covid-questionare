@@ -1,13 +1,13 @@
 import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import HaveCovid from '@/pages/CovidQuestionnairePage/components/form/HaveCovid';
-import HaveAntibodies from '@/pages/CovidQuestionnairePage/components/form/HaveAntibodies';
-import CovidSicknessDate from '@/pages/CovidQuestionnairePage/components/form/CovidSicknessDate';
+import HaveCovid from './HaveCovid';
+import HaveAntibodies from './HaveAntibodies';
+import CovidSicknessDate from './CovidSicknessDate';
 import 'react-datepicker/dist/react-datepicker.css';
-import TestAndAntibodies from '@/pages/CovidQuestionnairePage/components/form/TestAndAntibodies';
-import RightArrow from '@/components/icons/RightArrow';
-import LeftArrow from '@/components/icons/LeftArrow';
-import { useCovidQuestionnairePageForm } from '@/pages/CovidQuestionnairePage/components/form/useCovidQuestionnairePageForm';
+import TestAndAntibodies from './TestAndAntibodies';
+import { RightArrow } from '@/components';
+import { LeftArrow } from '@/components';
+import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm';
 
 const Form = () => {
   const {

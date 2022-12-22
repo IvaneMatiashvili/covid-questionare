@@ -1,5 +1,5 @@
 import Layout from '/src/components/Layout.jsx';
-import Form from '/src/pages/VaccinationPage/components/form/Form';
+import Form from '/src/pages/VaccinationPage/components/Form/Form';
 import useRedirectToCurrentPage from '@/hooks/use-redirect-to-current-page';
 import '@/css/vaccination-page-animation.css';
 

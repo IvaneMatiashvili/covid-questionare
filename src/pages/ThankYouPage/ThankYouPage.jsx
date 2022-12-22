@@ -1,5 +1,5 @@
 import '@/css/thank-you-page-animation.css';
-import useRedirectToStartPage from '@/pages/ThankYouPage/components/useRedirectToStartPage';
+import { useRedirectToStartPage } from './components';
 
 const ThankYou = () => {
   useRedirectToStartPage();
