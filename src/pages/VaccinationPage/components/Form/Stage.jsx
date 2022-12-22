@@ -1,4 +1,4 @@
-import InputRadioAndLabel from '@/components/form/InputRadioAndLabel';
+import { InputRadioAndLabel } from '@/components';
 
 const Stage = () => {
   return (

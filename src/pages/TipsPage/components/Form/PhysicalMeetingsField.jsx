@@ -1,6 +1,6 @@
-import Textarea from '@/components/form/Textarea';
+import { Textarea } from '@/components';
 
-const PhysicalMeetingsField = (props) => {
+const PhysicalMeetingsField = () => {
   return (
     <>
       <p className=' font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-[2.5rem]'>

@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import TestAndAntibodies from './TestAndAntibodies';
 import { RightArrow } from '@/components';
 import { LeftArrow } from '@/components';
+import { Error } from '@/components';
 import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm';
 
 const Form = () => {
@@ -30,22 +31,14 @@ const Form = () => {
         <ErrorMessage
           errors={errors}
           name='have_covid'
-          render={({ message }) => (
-            <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <Error message={message} />}
         />
         {watchHaveCovid === 'yes' && <HaveAntibodies />}
         {watchHaveCovid === 'yes' && (
           <ErrorMessage
             errors={errors}
             name='have_antibodies'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
         )}
         {watchHaveAntibodies === 'no' && watchHaveCovid === 'yes' && (
@@ -59,11 +52,7 @@ const Form = () => {
           <ErrorMessage
             errors={errors}
             name='covid_sicknessDate'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
         )}
         {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (

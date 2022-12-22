@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import SendDataContext from '@/context/send-data-context';
+import { SendDataContext } from '@/context';
 import { useContext, useEffect } from 'react';
 import { useForm, useWatch, FormProvider } from 'react-hook-form';
 

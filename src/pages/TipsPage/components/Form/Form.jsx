@@ -1,10 +1,11 @@
-import MeetingField from '@/pages/TipsPage/components/form/MeetingField.jsx';
-import WorkInOfficeField from '@/pages/TipsPage/components/form/WorkInOfficeField.jsx';
-import PhysicalMeetingsField from '@/pages/TipsPage/components/form/PhysicalMeetingsField.jsx';
-import WhatWouldYouChangeField from '@/pages/TipsPage/components/form/WhatWouldYouChangeField.jsx';
+import MeetingField from './MeetingField';
+import WorkInOfficeField from './WorkInOfficeField';
+import PhysicalMeetingsField from './PhysicalMeetingsField';
+import WhatWouldYouChangeField from './WhatWouldYouChangeField';
 import { ErrorMessage } from '@hookform/error-message';
-import LeftArrow from '@/components/icons/LeftArrow.jsx';
-import { useTipsPageForm } from '@/pages/TipsPage/components/form/useTipsPageForm.jsx';
+import { LeftArrow } from '@/components';
+import { Error } from '@/components';
+import { useTipsPageForm } from './useTipsPageForm';
 
 const Form = () => {
   const { form, FormProvider, errors, handleSubmit, submit, navigateLeft } =
@@ -17,21 +18,13 @@ const Form = () => {
           <ErrorMessage
             errors={errors}
             name='meeting_field'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
           <WorkInOfficeField />
           <ErrorMessage
             errors={errors}
             name='work_in_office_field'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
           <PhysicalMeetingsField />
           <WhatWouldYouChangeField />

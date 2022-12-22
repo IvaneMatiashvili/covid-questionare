@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import useRedirectToCurrentPage from '@/hooks/use-redirect-to-current-page';
+import { useRedirectToCurrentPage } from '@/hooks';
 import '@/css/landing-page-animation.css';
 
 const LandingPage = () => {

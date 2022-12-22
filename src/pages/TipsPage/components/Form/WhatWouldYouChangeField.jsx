@@ -1,4 +1,4 @@
-import Textarea from '@/components/form/Textarea';
+import { Textarea } from '@/components';
 
 const WhatWouldYouChangeField = () => {
   return (

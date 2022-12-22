@@ -1,7 +1,8 @@
 import { ErrorMessage } from '@hookform/error-message';
-import RightArrow from '@/components/icons/RightArrow.jsx';
-import { useIdentityPageForm } from '@/pages/IdentityPage/components/Form/useIdentityPageForm.jsx';
-import InputTypeText from '@/components/form/InputTypeText';
+import { RightArrow } from '@/components';
+import { useIdentityPageForm } from './useIdentityPageForm';
+import { InputTypeText } from '@/components';
+import { Error } from '@/components';
 
 const Form = () => {
   const { form, handleSubmit, errors, navigateRight, FormProvider } =
@@ -27,11 +28,7 @@ const Form = () => {
         <ErrorMessage
           errors={errors}
           name='name'
-          render={({ message }) => (
-            <p className='absolute mt-2 font-arial ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <Error message={message} />}
         />
         <InputTypeText
           name='last_name'
@@ -50,11 +47,7 @@ const Form = () => {
         <ErrorMessage
           errors={errors}
           name='last_name'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <Error message={message} />}
         />
         <InputTypeText
           name='email'
@@ -75,11 +68,7 @@ const Form = () => {
         <ErrorMessage
           errors={errors}
           name='email'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <Error message={message} />}
         />
         <button type='submit' className='absolute left-[55%] bottom-[5%]'>
           <RightArrow />

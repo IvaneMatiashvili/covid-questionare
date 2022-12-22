@@ -1,12 +1,14 @@
-import LandingPage from '@/pages/LangingPage/LandingPage';
 import '@/index.css';
 import { Route, Routes } from 'react-router-dom';
-import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
-import IdentityPage from '@/pages/IdentityPage/IdentityPage';
-import CovidQuestionnairePage from '@/pages/CovidQuestionnairePage/CovidQuestionnairePage';
-import VaccinationPage from '@/pages/VaccinationPage/ VaccinationPage';
-import TipsPage from '@/pages/TipsPage/TipsPage';
-import ThankYou from '@/pages/ThankYouPage/ThankYou';
+import {
+  LandingPage,
+  NotFoundPage,
+  IdentityPage,
+  CovidQuestionnairePage,
+  VaccinationPage,
+  TipsPage,
+  ThankYouPage,
+} from '@/pages';
 
 function App() {
   return (
@@ -20,7 +22,7 @@ function App() {
         />
         <Route path='/vaccination' element={<VaccinationPage />} />
         <Route path='/tips' element={<TipsPage />} />
-        <Route path='/thank-you' element={<ThankYou />} />
+        <Route path='/thank-you' element={<ThankYouPage />} />
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

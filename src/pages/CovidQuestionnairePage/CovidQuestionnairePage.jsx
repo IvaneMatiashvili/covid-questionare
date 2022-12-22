@@ -1,6 +1,6 @@
-import Layout from '@/components/Layout';
-import Form from '@/pages/CovidQuestionnairePage/components/form/Form.jsx';
-import useRedirectToCurrentPage from '@/hooks/use-redirect-to-current-page';
+import { Layout } from '@/components';
+import { Form } from './components';
+import { useRedirectToCurrentPage } from '@/hooks';
 import '@/css/covid-questionnaire-page-animation.css';
 
 const CovidQuestionnairePage = () => {

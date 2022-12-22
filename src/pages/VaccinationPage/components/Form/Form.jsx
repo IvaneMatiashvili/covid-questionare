@@ -1,13 +1,14 @@
-import HaveVaccination from '/src/pages/VaccinationPage/components/form/HaveVaccination';
-import Stage from '/src/pages/VaccinationPage/components/form/Stage';
+import HaveVaccination from './HaveVaccination';
+import Stage from './Stage';
 import { ErrorMessage } from '@hookform/error-message';
-import RegisterNow from '/src/pages/VaccinationPage/components/form/feedback/RegisterNow';
-import WhatAreYouWaitingFor from '/src/pages/VaccinationPage/components/form/WhatAreYouWaitingFor';
-import DoNotPlan from '/src/pages/VaccinationPage/components/form/feedback/DoNotPlan';
-import PlanToVaccinate from '/src/pages/VaccinationPage/components/form/feedback/PlanToVaccinate';
-import RightArrow from '@/components/icons/RightArrow.jsx';
-import LeftArrow from '@/components/icons/LeftArrow.jsx';
-import { useVaccinationPageForm } from '@/pages/VaccinationPage/components/form/useVaccinationPageForm';
+import { RegisterNow } from './feedback';
+import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
+import { DoNotPlan } from './feedback';
+import { PlanToVaccinate } from './feedback';
+import { RightArrow } from '@/components';
+import { LeftArrow } from '@/components';
+import { Error } from '@/components';
+import { useVaccinationPageForm } from './useVaccinationPageForm';
 
 const Form = () => {
   const {
@@ -28,22 +29,14 @@ const Form = () => {
         <ErrorMessage
           errors={errors}
           name='have_vaccination'
-          render={({ message }) => (
-            <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <Error message={message} />}
         />
         {watchHaveVaccination === 'yes' && <Stage />}
         {watchHaveVaccination === 'yes' && (
           <ErrorMessage
             errors={errors}
             name='stage'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
         )}
         {watchHaveVaccination === 'yes' &&
@@ -55,11 +48,7 @@ const Form = () => {
           <ErrorMessage
             errors={errors}
             name='what_are_you_waiting_for'
-            render={({ message }) => (
-              <p className='absolute font-arial mt-2 ml-4 font-normal text-base text-text-error'>
-                {message}
-              </p>
-            )}
+            render={({ message }) => <Error message={message} />}
           />
         )}
         {watchHaveVaccination === 'no' &&

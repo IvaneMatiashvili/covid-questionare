@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
-import SendDataContext from '@/context/send-data-context';
+import { SendDataContext } from '@/context';
 import { useForm, useWatch, FormProvider } from 'react-hook-form';
 
 export const useCovidQuestionnairePageForm = () => {
@@ -67,7 +67,6 @@ export const useCovidQuestionnairePageForm = () => {
   };
 
   useEffect(() => {
-    console.log(watchHaveCovid);
     localStorage.setItem('haveCovid', watchHaveCovid);
     localStorage.setItem('haveAntibodies', watchHaveAntibodies);
     localStorage.setItem('antibodiesQuantity', watchAntibodiesQuantity);

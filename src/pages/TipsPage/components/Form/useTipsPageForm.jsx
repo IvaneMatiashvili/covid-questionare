@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import SendDataContext from '@/context/send-data-context';
+import { SendDataContext } from '@/context';
 import { useForm, useWatch, FormProvider } from 'react-hook-form';
 import { useContext, useEffect } from 'react';
-import getRegisterRequest from '@/services/index.js';
+import getRegisterRequest from '@/services';
 
 export const useTipsPageForm = () => {
   const navigate = useNavigate();

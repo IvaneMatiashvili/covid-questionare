@@ -1,8 +1,10 @@
-import RedberrySvg from '@/components/icons/RedberrySvg';
-import IdentityPageNumberSvg from '@/components/icons/IdentityPageNumberSvg';
-import CovidQuestionnairePageSvg from '@/components/icons/CovidQuestionnairePageSvg';
-import VaccinationPageNumberSvg from '@/components/icons/VaccinationPageNumberSvg';
-import TipsPageNumberSvg from '@/components/icons/TipsPageNumberSvg';
+import {
+  RedberrySvg,
+  IdentityPageNumberSvg,
+  CovidQuestionnairePageSvg,
+  VaccinationPageNumberSvg,
+  TipsPageNumberSvg,
+} from '@/components';
 
 const Layout = (props) => {
   let currentPageSvg;
