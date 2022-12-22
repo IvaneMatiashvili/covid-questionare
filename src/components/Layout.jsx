@@ -8,15 +8,19 @@ import {
 
 const Layout = (props) => {
   let currentPageSvg;
-  let currentPageNumber = localStorage.getItem('page');
-  if (currentPageNumber === '1') {
-    currentPageSvg = <IdentityPageNumberSvg />;
-  } else if (currentPageNumber === '2') {
-    currentPageSvg = <CovidQuestionnairePageSvg />;
-  } else if (currentPageNumber === '3') {
-    currentPageSvg = <VaccinationPageNumberSvg />;
-  } else {
-    currentPageSvg = <TipsPageNumberSvg />;
+  let currentPage = localStorage.getItem('page');
+  switch (currentPage) {
+    case '/identity':
+      currentPageSvg = <IdentityPageNumberSvg />;
+      break;
+    case '/covid-questionnaire':
+      currentPageSvg = <CovidQuestionnairePageSvg />;
+      break;
+    case '/vaccination':
+      currentPageSvg = <VaccinationPageNumberSvg />;
+      break;
+    default:
+      currentPageSvg = <TipsPageNumberSvg />;
   }
   return (
     <div className='min-w-screen min-h-screen bg-soft-brown'>
@@ -26,7 +30,7 @@ const Layout = (props) => {
           {currentPageSvg}
         </div>
       </header>
-      <div className='w-[95rem] h-[1px] ml-[12.5rem] mt-[1.5rem] bg-dark-100'></div>
+      <div className='w-[95rem] h-[1px] ml-[12.5rem] mt-6 bg-dark-100'></div>
       <div className='w-[95rem] ml-[12.5rem]'>{props.children}</div>
     </div>
   );
