@@ -16,11 +16,22 @@ const getRegisterRequest = async (enteredValues) => {
       data['covid_sickness_date'] = date;
     } else {
       data['had_antibody_test'] = true;
-      const antibodies = {
-        test_date: new Date(enteredValues.testDate).toISOString(),
-        number: enteredValues.antibodiesQuantity,
-      };
-      data['antibodies'] = antibodies;
+      const antibodies = {};
+      let count = 0;
+      if (enteredValues.testDate.length > 8) {
+        enteredValues.testDate = '';
+        antibodies['test_date'] = new Date(
+          enteredValues.testDate
+        ).toISOString();
+        count++;
+      }
+      if (enteredValues.antibodiesQuantity.trim().length > 0) {
+        antibodies['number'] = +enteredValues.antibodiesQuantity;
+        count++;
+      }
+      if (count > 0) {
+        data['antibodies'] = antibodies;
+      }
     }
   }
 
@@ -33,14 +44,10 @@ const getRegisterRequest = async (enteredValues) => {
   }
   data['non_formal_meetings'] = enteredValues.meetingField;
   data['number_of_days_from_office'] = enteredValues.workInOfficeField;
-  if (enteredValues.physicalMeetingsField.trim().length === 0) {
-    data['what_about_meetings_in_live'] = '0';
-  } else {
+  if (enteredValues.physicalMeetingsField.trim().length > 0) {
     data['what_about_meetings_in_live'] = enteredValues.physicalMeetingsField;
   }
-  if (enteredValues.whatWouldYouChangeField.trim().length === 0) {
-    data['tell_us_your_opinion_about_us'] = '0';
-  } else {
+  if (enteredValues.whatWouldYouChangeField.trim().length > 0) {
     data['tell_us_your_opinion_about_us'] =
       enteredValues.whatWouldYouChangeField;
   }
