@@ -14,7 +14,7 @@ const InputTypeText = ({ id, name, placeholder, labelContent, erorrs }) => {
         {...register(name, erorrs)}
         id={id}
         placeholder={placeholder}
-        className='placeholder-gray-500 placeholder-4 placeholder-base font-arial text-dark-100 font-normal text-base bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-2 border-2 border-border-gray pl-[24px]'
+        className='placeholder-gray-500 placeholder-4 placeholder-base font-arial text-dark-100 font-normal text-base bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-2 border-2 border-border-gray pl-5'
       />
     </>
   );
