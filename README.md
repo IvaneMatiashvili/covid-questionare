@@ -27,9 +27,9 @@ the Covid situation and how Redberry can improve and support the company's inter
 
 - <img src="readme/assets/react-icon.svg.png" height="18" style="position: relative; top: 4px" /> [React@18.2.0](https://reactjs.org/) - front-end framework
 - <img src="readme/assets/react-router-icon.png" height="18" style="position: relative; top: 4px" /> [React-router@v6](https://reactrouter.com/en/main) - React Router is a standard library for routing in React.
-- <img src="readme/assets/vite.svg" height="18" style="position: relative; top: 4px" /> [Vite](https://vitejs.dev/guide/) - helps to bundle application's CSS and JavaScript files into production ready assets.
-- <img src="readme/assets/tailwind.svg.png" height="19" style="position: relative; top: 4px" /> [Tailwind CSS](https://tailwindcss.com/) - makes it quicker to write and maintain the code of your application
-- <img src="readme/assets/react-hook-form.png" height="19" style="position: relative; top: 4px" /> [React hook form](https://react-hook-form.com/) - package for form validation
+- <img src="readme/assets/vite.svg" height="18" style="position: relative; top: 4px" /> [Vite@4.0.1](https://vitejs.dev/guide/) - helps to bundle application's CSS and JavaScript files into production ready assets.
+- <img src="readme/assets/tailwind.svg.png" height="19" style="position: relative; top: 4px" /> [Tailwind CSS@3.2.4](https://tailwindcss.com/) - makes it quicker to write and maintain the code of your application
+- <img src="readme/assets/react-hook-form.png" height="19" style="position: relative; top: 4px" /> [React hook form@6](https://react-hook-form.com/) - package for form validation
 
 #
 
@@ -41,13 +41,13 @@ the Covid situation and how Redberry can improve and support the company's inter
 git clone https://github.com/RedberryInternship/ivane-covid-questionare.git
 ```
 
-2\. Next step requires you to run _npm install_ in order to install all the dependencies.
+2\. Next step requires you to run `npm install` in order to install all the dependencies.
 
 ```sh
 npm install
 ```
 
-and also:
+3\. Finally, you can run application locally with:
 
 ```sh
 npm run dev
