@@ -66,7 +66,7 @@ export const useCovidQuestionnairePageForm = () => {
     navigate('/vaccination')
   }
 
-  let [color, setColor] = useState('#8D8D8D')
+  let [color, setColor] = useState(false)
   let [cursor, setCursor] = useState('cursor-default')
 
   useEffect(() => {
@@ -84,11 +84,11 @@ export const useCovidQuestionnairePageForm = () => {
 
     if (isValid) {
       localStorage.setItem('covidValid', 'yes')
-      setColor('#232323')
+      setColor(true)
       setCursor('cursor-pointer')
     } else {
       setCursor('cursor-default')
-      setColor('#8D8D8D')
+      setColor(false)
       localStorage.setItem('covidValid', 'no')
     }
   }, [

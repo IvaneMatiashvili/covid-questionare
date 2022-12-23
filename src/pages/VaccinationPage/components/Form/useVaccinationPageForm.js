@@ -41,7 +41,7 @@ export const useVaccinationPageForm = () => {
     localStorage.setItem('page', '/tips')
     navigate('/tips')
   }
-  let [color, setColor] = useState('#8D8D8D')
+  let [color, setColor] = useState(false)
   let [cursor, setCursor] = useState('cursor-default')
 
   useEffect(() => {
@@ -55,12 +55,12 @@ export const useVaccinationPageForm = () => {
 
     if (isValid) {
       localStorage.setItem('vaccinationValid', 'yes')
-      setColor('#232323')
+      setColor(true)
       setCursor('cursor-pointer')
     } else {
       localStorage.setItem('vaccinationValid', 'no')
       setCursor('cursor-default')
-      setColor('#8D8D8D')
+      setColor(false)
     }
   }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor, isValid])
 

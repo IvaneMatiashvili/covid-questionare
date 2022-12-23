@@ -35,13 +35,12 @@ export const useIdentityPageForm = () => {
   if (errors) {
   }
   const navigateRight = (data) => {
-    console.log(localStorage.getItem('identityValid'))
     localStorage.setItem('from', 'left')
     localStorage.setItem('page', '/covid-questionnaire')
     navigate('/covid-questionnaire')
   }
 
-  let [color, setColor] = useState('#8D8D8D')
+  let [color, setColor] = useState(false)
   let [cursor, setCursor] = useState('cursor-default')
 
   useEffect(() => {
@@ -54,12 +53,12 @@ export const useIdentityPageForm = () => {
     setEmail(watchEmail)
     if (isValid) {
       localStorage.setItem('identityValid', 'yes')
-      setColor('#232323')
+      setColor(true)
       setCursor('cursor-pointer')
     } else {
       localStorage.setItem('identityValid', 'no')
       setCursor('cursor-default')
-      setColor('#8D8D8D')
+      setColor(false)
     }
   }, [watchName, watchLastName, watchEmail, isValid])
   return {
