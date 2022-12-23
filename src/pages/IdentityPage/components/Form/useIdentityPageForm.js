@@ -61,8 +61,6 @@ export const useIdentityPageForm = () => {
       setCursor('cursor-default')
       setColor('#8D8D8D')
     }
-
-    console.log(color)
   }, [watchName, watchLastName, watchEmail, isValid])
   return {
     form,
