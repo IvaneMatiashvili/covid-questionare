@@ -14,15 +14,16 @@ const LandingPage = () => {
             />
           </div>
         </div>
-        <div className='ml-[2px] mt-6'>
+        <div className='mt-6'>
           <a
-            className='flex flex-col justify-center items-center cursor-pointer mt-[6.3rem] start-questionnaire-container-animation hover:bg-shadow bg-cover'
+            className='flex flex-col justify-center overflow-hidden items-center h-16 w-52 cursor-pointer mt-[6.3rem] start-questionnaire-container-animation'
             onClick={navigateToIdentityPage}
           >
             <img
               src='/assets/start.png'
-              className='relative right-[2px] start-questionnaire-animation'
+              className='relative start-questionnaire-animation h-16 w-52 object-contain'
             />
+            <div className='hover:bg-shadow bg-contain ml-12 bg-no-repeat shadow-container-animation absolute h-16 w-56'></div>
           </a>
         </div>
       </div>
