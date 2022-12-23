@@ -14,6 +14,7 @@ the Covid situation and how Redberry can improve and support the company's inter
 - [Getting Started](#getting-started)
 - [Development](#development)
 - [Project Structure](#project-structure)
+- [Resources](#resources)
 
 #
 
@@ -98,3 +99,16 @@ It also watches and generates your tailwind properties in app.css
 - tailwind.config.js
 - vite.config.js
 ```
+
+---
+
+#
+
+### Resources
+
+- [Application Design [Figma]](https://www.figma.com/file/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98?node-id=37%3A3&t=DFt3wUtX8d0xV0cP-0)
+- [Application Design Prototype](https://www.figma.com/proto/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98?node-id=37%3A3&starting-point-node-id=1%3A2&scaling=contain)
+- [API Specification](https://covid19.devtest.ge/api-specs)
+- [Font [BPG Arial]](https://fonts.ge/ka/font/13/BPG-Arial)
+
+#
