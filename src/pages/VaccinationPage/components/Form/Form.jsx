@@ -1,9 +1,7 @@
 import HaveVaccination from './HaveVaccination';
 import Stage from './Stage';
-import { RegisterNow } from './feedback';
+import { RegisterNow, DoNotPlan, PlanToVaccinate } from './feedback';
 import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
-import { DoNotPlan } from './feedback';
-import { PlanToVaccinate } from './feedback';
 import { RightArrow, LeftArrow, Error } from '@/components';
 import { useVaccinationPageForm } from './useVaccinationPageForm.js';
 
