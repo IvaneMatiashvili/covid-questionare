@@ -66,9 +66,6 @@ export const useCovidQuestionnairePageForm = () => {
     navigate('/vaccination')
   }
 
-  let [color, setColor] = useState(false)
-  let [cursor, setCursor] = useState('cursor-default')
-
   useEffect(() => {
     localStorage.setItem('haveCovid', watchHaveCovid)
     localStorage.setItem('haveAntibodies', watchHaveAntibodies)
@@ -84,11 +81,7 @@ export const useCovidQuestionnairePageForm = () => {
 
     if (isValid) {
       localStorage.setItem('covidValid', 'yes')
-      setColor(true)
-      setCursor('cursor-pointer')
     } else {
-      setCursor('cursor-default')
-      setColor(false)
       localStorage.setItem('covidValid', 'no')
     }
   }, [
@@ -113,7 +106,6 @@ export const useCovidQuestionnairePageForm = () => {
     control: form.control,
     navigateLeft,
     navigateRight,
-    color,
-    cursor,
+    isValid,
   }
 }

@@ -2,15 +2,8 @@ import { RightArrow, InputTypeText, Error } from '@/components'
 import { useIdentityPageForm } from './useIdentityPageForm.js'
 
 const Form = () => {
-  const {
-    form,
-    handleSubmit,
-    errors,
-    navigateRight,
-    FormProvider,
-    color,
-    cursor,
-  } = useIdentityPageForm()
+  const { form, handleSubmit, errors, navigateRight, FormProvider, isValid } =
+    useIdentityPageForm()
 
   return (
     <FormProvider {...form}>
@@ -69,9 +62,11 @@ const Form = () => {
 
         <button
           type='submit'
-          className={`absolute left-[55%] bottom-[5%] ${cursor}`}
+          className={`absolute left-[55%] bottom-[5%] ${
+            isValid ? 'cursor-pointer' : 'cursor-default'
+          }`}
         >
-          <RightArrow color={color} />
+          <RightArrow isValid={isValid} />
         </button>
       </form>
     </FormProvider>

@@ -20,8 +20,7 @@ const Form = () => {
     control,
     navigateLeft,
     navigateRight,
-    color,
-    cursor,
+    isValid,
   } = useCovidQuestionnairePageForm()
   return (
     <FormProvider {...form}>
@@ -59,9 +58,11 @@ const Form = () => {
 
         <button
           type='submit'
-          className={`absolute left-[55%] bottom-[5%] ${cursor}`}
+          className={`absolute left-[55%] bottom-[5%] ${
+            isValid ? 'cursor-pointer' : 'cursor-default'
+          }`}
         >
-          <RightArrow color={color} />
+          <RightArrow isValid={isValid} />
         </button>
         <div
           className='absolute left-1/2 bottom-[5%] cursor-pointer'

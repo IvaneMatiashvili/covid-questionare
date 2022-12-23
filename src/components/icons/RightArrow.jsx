@@ -1,4 +1,4 @@
-const RightArrow = ({ color }) => {
+const RightArrow = ({ isValid }) => {
   return (
     <svg
       width='18'
@@ -9,7 +9,7 @@ const RightArrow = ({ color }) => {
     >
       <path
         d='M1 1L15 11.3158L1 21.6316'
-        stroke={`${color ? '#232323' : '#8D8D8D'}`}
+        stroke={`${isValid ? '#232323' : '#8D8D8D'}`}
         strokeWidth='2.4'
       />
     </svg>
