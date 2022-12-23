@@ -1,1 +1,1 @@
-export { default as useRedirectToCurrentPage } from './useRedirectToCurrentPage.jsx';
+export { default as useRedirectToCurrentPage } from './useRedirectToCurrentPage.js';
