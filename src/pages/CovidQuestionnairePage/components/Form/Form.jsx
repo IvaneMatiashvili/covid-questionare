@@ -1,11 +1,11 @@
-import { Controller } from 'react-hook-form';
-import HaveCovid from './HaveCovid';
-import HaveAntibodies from './HaveAntibodies';
-import CovidSicknessDate from './CovidSicknessDate';
-import 'react-datepicker/dist/react-datepicker.css';
-import TestAndAntibodies from './TestAndAntibodies';
-import { RightArrow, LeftArrow, Error } from '@/components';
-import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm.js';
+import { Controller } from 'react-hook-form'
+import HaveCovid from './HaveCovid'
+import HaveAntibodies from './HaveAntibodies'
+import CovidSicknessDate from './CovidSicknessDate'
+import 'react-datepicker/dist/react-datepicker.css'
+import TestAndAntibodies from './TestAndAntibodies'
+import { RightArrow, LeftArrow, Error } from '@/components'
+import { useCovidQuestionnairePageForm } from './useCovidQuestionnairePageForm.js'
 
 const Form = () => {
   const {
@@ -20,7 +20,7 @@ const Form = () => {
     control,
     navigateLeft,
     navigateRight,
-  } = useCovidQuestionnairePageForm();
+  } = useCovidQuestionnairePageForm()
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(navigateRight)}>
@@ -51,6 +51,9 @@ const Form = () => {
             control={control}
           />
         )}
+        {watchHaveAntibodies === 'yes' && watchHaveCovid === 'yes' && (
+          <Error errors={errors} name='antibodies_quantity' />
+        )}
 
         <button type='submit' className='absolute left-[55%] bottom-[5%]'>
           <RightArrow />
@@ -63,7 +66,7 @@ const Form = () => {
         </div>
       </form>
     </FormProvider>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

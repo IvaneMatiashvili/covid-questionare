@@ -1,9 +1,10 @@
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { useFormContext } from 'react-hook-form';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { useFormContext } from 'react-hook-form'
+import moment from 'moment'
 
 const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
-  const { register } = useFormContext();
+  const { register } = useFormContext()
   return (
     <>
       <label
@@ -25,6 +26,7 @@ const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
+            maxDate={moment().toDate()}
             ref-setter={register('covid_sicknessDate', {
               required: {
                 value: true,
@@ -35,7 +37,7 @@ const CovidSicknessDate = ({ controller: Controller, watch, control }) => {
         )}
       />
     </>
-  );
-};
+  )
+}
 
-export default CovidSicknessDate;
+export default CovidSicknessDate
