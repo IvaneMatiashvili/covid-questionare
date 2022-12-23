@@ -21,6 +21,14 @@
         filter: unset;
     }
 
+    .tips-overflow::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .tips-overflow::-webkit-scrollbar-track {
+        display: none;
+    }
+
     input[type='number']::-webkit-inner-spin-button {
         -webkit-appearance: none !important;
     }

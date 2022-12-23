@@ -11,11 +11,11 @@ const VaccinationPage = () => {
         </div>
         <img
           src='/assets/vaccination.png'
-          className='object-top z-10 object-cover h-[48rem]'
+          className='object-top absolute left-1/2 top-[20%] z-10 object-cover h-[45rem]'
         />
         <img
           src='/assets/star.png'
-          className={`absolute left-1/2 top-[12%] vaccination-logo-from-${localStorage.getItem(
+          className={`absolute left-[51.5%] top-[18%] vaccination-logo-from-${localStorage.getItem(
             'from'
           )}-animation`}
         />
