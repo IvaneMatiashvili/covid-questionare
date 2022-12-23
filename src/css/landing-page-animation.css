@@ -1,5 +1,5 @@
 .landing-full-logo-animation {
-    animation: landingFullLogoAnimation 600ms;
+    animation: landingFullLogoAnimation 400ms;
     animation-timing-function: linear;
 }
 
@@ -34,33 +34,22 @@
 }
 
 .start-questionnaire-container-animation {
-    animation: startQuestionnaireContainerAnimation 2.1s linear;
+    animation: startQuestionnaireContainerAnimation 1s linear;
 }
 
 @keyframes startQuestionnaireContainerAnimation {
-    0% {
+    from {
         opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    60% {
-        opacity: 0;
-    }
-    80% {
-        bottom: 5rem;
+        height: 0;
     }
     100% {
-        bottom: 0;
+        height: 5rem;
         opacity: 1;
     }
 }
 
 .start-questionnaire-animation {
-    animation: startQuestionnaireAnimation 1.5s linear;
+    animation: startQuestionnaireAnimation 1s linear;
 }
 
 @keyframes startQuestionnaireAnimation {
@@ -84,4 +73,32 @@
         bottom: 0;
         opacity: 1;
     }
+
+}
+
+.shadow-container-animation {
+    animation: shadowContainerAnimation 1.2s linear;
+}
+
+@keyframes shadowContainerAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+
 }
