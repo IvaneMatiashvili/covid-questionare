@@ -11,9 +11,6 @@ const InputTypeText = ({ id, name, placeholder, labelContent, erorrs }) => {
         {labelContent}
       </label>
       <input
-        onChange={(e) => {
-          setValue(name, e.target.value.trim(), { shouldValidate: true })
-        }}
         {...register(name, {
           ...erorrs,
           onChange: (e) => {

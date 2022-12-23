@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { SendDataContext } from '@/context'
 import { useForm, useWatch, FormProvider } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -17,7 +17,7 @@ export const useIdentityPageForm = () => {
     },
   })
 
-  const { errors } = form.formState
+  const { errors, isValid } = form.formState
 
   const watchName = useWatch({
     control: form.control,
@@ -32,11 +32,17 @@ export const useIdentityPageForm = () => {
     name: 'email',
   })
 
+  if (errors) {
+  }
   const navigateRight = (data) => {
+    console.log(localStorage.getItem('identityValid'))
     localStorage.setItem('from', 'left')
     localStorage.setItem('page', '/covid-questionnaire')
-    navigate('/covid-questionnaire', { replace: true })
+    navigate('/covid-questionnaire')
   }
+
+  let [color, setColor] = useState('#8D8D8D')
+  let [cursor, setCursor] = useState('cursor-default')
 
   useEffect(() => {
     localStorage.setItem('name', watchName)
@@ -46,7 +52,18 @@ export const useIdentityPageForm = () => {
     setName(watchName)
     setLastName(watchLastName)
     setEmail(watchEmail)
-  }, [watchName, watchLastName, watchEmail])
+    if (isValid) {
+      localStorage.setItem('identityValid', 'yes')
+      setColor('#232323')
+      setCursor('cursor-pointer')
+    } else {
+      localStorage.setItem('identityValid', 'no')
+      setCursor('cursor-default')
+      setColor('#8D8D8D')
+    }
+
+    console.log(color)
+  }, [watchName, watchLastName, watchEmail, isValid])
   return {
     form,
     handleSubmit: form.handleSubmit,
@@ -54,5 +71,7 @@ export const useIdentityPageForm = () => {
     navigate,
     navigateRight,
     FormProvider,
+    color,
+    cursor,
   }
 }

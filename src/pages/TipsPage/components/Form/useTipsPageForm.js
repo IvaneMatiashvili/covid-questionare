@@ -39,7 +39,7 @@ export const useTipsPageForm = () => {
     },
   })
 
-  const { errors } = form.formState
+  const { errors, isValid } = form.formState
 
   const watchMeetingField = useWatch({
     control: form.control,
@@ -60,29 +60,38 @@ export const useTipsPageForm = () => {
   const navigateLeft = () => {
     localStorage.setItem('from', 'right')
     localStorage.setItem('page', '/vaccination')
-    navigate('/vaccination', { replace: true })
+    navigate('/vaccination')
   }
 
   const submit = () => {
-    const registerRequest = getRegisterRequest({
-      name,
-      lastName,
-      email,
-      haveCovid,
-      haveAntibodies,
-      covidSicknessDate,
-      antibodiesQuantity,
-      testDate,
-      haveVaccination,
-      stage,
-      whatAreYouWaitingFor,
-      meetingField,
-      workInOfficeField,
-      physicalMeetingsField,
-      whatWouldYouChangeField,
-    })
-    localStorage.setItem('page', '/thank-you')
-    navigate('/thank-you', { replace: true })
+    if (
+      localStorage.getItem('identityValid') === 'yes' &&
+      localStorage.getItem('covidValid') === 'yes' &&
+      localStorage.getItem('vaccinationValid') === 'yes' &&
+      localStorage.getItem('tipsValid') === 'yes'
+    ) {
+      const registerRequest = getRegisterRequest({
+        name,
+        lastName,
+        email,
+        haveCovid,
+        haveAntibodies,
+        covidSicknessDate,
+        antibodiesQuantity,
+        testDate,
+        haveVaccination,
+        stage,
+        whatAreYouWaitingFor,
+        meetingField,
+        workInOfficeField,
+        physicalMeetingsField,
+        whatWouldYouChangeField,
+      })
+      localStorage.setItem('page', '/thank-you')
+      navigate('/thank-you')
+    } else {
+      navigate('/identity')
+    }
   }
 
   useEffect(() => {
@@ -98,11 +107,18 @@ export const useTipsPageForm = () => {
     setWorkInOfficeField(watchWorkInOfficeField)
     setPhysicalMeetingsField(watchPhysicalMeetingsField)
     setWhatWouldYouChangeField(watchWhatWouldYouChangeField)
+
+    if (isValid) {
+      localStorage.setItem('tipsValid', 'yes')
+    } else {
+      localStorage.setItem('tipsValid', 'no')
+    }
   }, [
     watchMeetingField,
     watchWorkInOfficeField,
     watchPhysicalMeetingsField,
     watchWhatWouldYouChangeField,
+    isValid,
   ])
 
   return {

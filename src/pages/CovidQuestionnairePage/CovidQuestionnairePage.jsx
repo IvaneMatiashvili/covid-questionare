@@ -1,10 +1,8 @@
-import { Layout } from '@/components';
-import { Form } from './components';
-import { useRedirectToCurrentPage } from '@/hooks';
-import '@/css/covid-questionnaire-page-animation.css';
+import { Layout } from '@/components'
+import { Form } from './components'
+import '@/css/covid-questionnaire-page-animation.css'
 
 const CovidQuestionnairePage = () => {
-  useRedirectToCurrentPage();
   return (
     <>
       <Layout>
@@ -25,7 +23,7 @@ const CovidQuestionnairePage = () => {
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default CovidQuestionnairePage;
+export default CovidQuestionnairePage

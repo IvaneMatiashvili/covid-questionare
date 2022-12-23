@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             colors: {
                 'soft-brown': '#EAEAEA',
+                'gray-arrow': '#8D8D8D',
                 'soft-gray': '#626262',
                 'dark-100': '#232323',
                 'border-gray': '#C4C4C4',
@@ -21,4 +22,4 @@ module.exports = {
         },
     },
     plugins: [],
-};
+}

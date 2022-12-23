@@ -1,10 +1,8 @@
-import { Layout } from '@/components';
-import { useRedirectToCurrentPage } from '@/hooks';
-import '@/css/identity-page-animatiom.css';
-import { Form } from './components';
+import { Layout } from '@/components'
+import '@/css/identity-page-animatiom.css'
+import { Form } from './components'
 
 const IdentityPage = () => {
-  useRedirectToCurrentPage();
   return (
     <Layout>
       <div className='w-[95rem] flex justify-between opacity-animation'>
@@ -28,7 +26,7 @@ const IdentityPage = () => {
         />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default IdentityPage;
+export default IdentityPage

@@ -1,10 +1,8 @@
-import { Layout } from '@/components';
-import { Form } from './components';
-import { useRedirectToCurrentPage } from '@/hooks';
-import '@/css/vaccination-page-animation.css';
+import { Layout } from '@/components'
+import { Form } from './components'
+import '@/css/vaccination-page-animation.css'
 
 const VaccinationPage = () => {
-  useRedirectToCurrentPage();
   return (
     <Layout>
       <div className='w-[95rem] flex justify-between overflow-hidden opacity-animation'>
@@ -23,7 +21,7 @@ const VaccinationPage = () => {
         />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default VaccinationPage;
+export default VaccinationPage
