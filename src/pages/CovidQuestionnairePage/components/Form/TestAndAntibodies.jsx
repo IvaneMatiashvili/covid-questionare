@@ -1,8 +1,9 @@
-import DatePicker from 'react-datepicker';
-import { useFormContext } from 'react-hook-form';
+import DatePicker from 'react-datepicker'
+import { useFormContext } from 'react-hook-form'
+import moment from 'moment'
 
 const TestAndAntibodies = ({ controller: Controller, watch, control }) => {
-  const { register } = useFormContext();
+  const { register, setValue } = useFormContext()
   return (
     <>
       <label
@@ -25,19 +26,31 @@ const TestAndAntibodies = ({ controller: Controller, watch, control }) => {
             onChange={onChange}
             onBlur={onBlur}
             selected={watch}
+            maxDate={moment().toDate()}
             ref-setter={register('test_date')}
           />
         )}
       />
       <input
-        {...register('antibodies_quantity')}
-        type='number'
+        {...register('antibodies_quantity', {
+          pattern: {
+            value: /[0-9]/,
+            message: 'გამოიყენეთ ციფრები',
+          },
+          onChange: (e) => {
+            e.target.value = e.target.value.trim()
+            setValue('antibodies_quantity', e.target.value.trim(), {
+              shouldValidate: true,
+            })
+          },
+        })}
+        type='text'
         id='AntibodiesQuantity'
         placeholder='ანტისხეულების რაოდენობა'
         className='placeholder-gray-500 font-arial placeholder-4 placeholder-base text-dark-100 font-normal text-base bg-soft-brown w-[30rem] h-[3.125rem] outline-none mt-6 ml-5 border-2 border-border-gray pl-6'
       />
     </>
-  );
-};
+  )
+}
 
-export default TestAndAntibodies;
+export default TestAndAntibodies
