@@ -1,9 +1,9 @@
-import { Textarea } from '@/components';
+import { Textarea } from '@/components'
 
 const WhatWouldYouChangeField = () => {
   return (
     <>
-      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-10'>
+      <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem] mt-8'>
         რას ფიქრობ არსებულ გარემოზე:
       </p>
       <p className='font-arial font-bold text-[1.3rem] text-dark-100 w-[33rem]'>
@@ -15,7 +15,7 @@ const WhatWouldYouChangeField = () => {
         name='what_would_you_change_field'
       ></Textarea>
     </>
-  );
-};
+  )
+}
 
-export default WhatWouldYouChangeField;
+export default WhatWouldYouChangeField
