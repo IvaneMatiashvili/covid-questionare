@@ -1,9 +1,9 @@
-import { RightArrow, InputTypeText, Error } from '@/components';
-import { useIdentityPageForm } from './useIdentityPageForm.js';
+import { RightArrow, InputTypeText, Error } from '@/components'
+import { useIdentityPageForm } from './useIdentityPageForm.js'
 
 const Form = () => {
   const { form, handleSubmit, errors, navigateRight, FormProvider } =
-    useIdentityPageForm();
+    useIdentityPageForm()
 
   return (
     <FormProvider {...form}>
@@ -65,7 +65,7 @@ const Form = () => {
         </button>
       </form>
     </FormProvider>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form
