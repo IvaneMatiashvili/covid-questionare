@@ -1,9 +1,9 @@
-import HaveVaccination from './HaveVaccination';
-import Stage from './Stage';
-import { RegisterNow, DoNotPlan, PlanToVaccinate } from './feedback';
-import WhatAreYouWaitingFor from './WhatAreYouWaitingFor';
-import { RightArrow, LeftArrow, Error } from '@/components';
-import { useVaccinationPageForm } from './useVaccinationPageForm.js';
+import HaveVaccination from './HaveVaccination'
+import Stage from './Stage'
+import { RegisterNow, DoNotPlan, PlanToVaccinate } from './feedback'
+import WhatAreYouWaitingFor from './WhatAreYouWaitingFor'
+import { RightArrow, LeftArrow, Error } from '@/components'
+import { useVaccinationPageForm } from './useVaccinationPageForm.js'
 
 const Form = () => {
   const {
@@ -16,7 +16,9 @@ const Form = () => {
     watchWhatAreYouWaitingFor,
     navigateLeft,
     navigateRight,
-  } = useVaccinationPageForm();
+    color,
+    cursor,
+  } = useVaccinationPageForm()
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(navigateRight)}>
@@ -46,8 +48,11 @@ const Form = () => {
         {watchHaveVaccination === 'no' &&
           watchWhatAreYouWaitingFor ===
             'had_covid_and_planning_to_be_vaccinated' && <PlanToVaccinate />}
-        <button type='submit' className='absolute left-[55%] bottom-[5%]'>
-          <RightArrow />
+        <button
+          type='submit'
+          className={`absolute left-[55%] bottom-[5%] ${cursor}`}
+        >
+          <RightArrow color={color} />
         </button>
         <div
           className='absolute left-1/2 bottom-[5%] cursor-pointer'
@@ -57,7 +62,7 @@ const Form = () => {
         </div>
       </form>
     </FormProvider>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

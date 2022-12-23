@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom';
-import { SendDataContext } from '@/context';
-import { useContext, useEffect } from 'react';
-import { useForm, useWatch, FormProvider } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom'
+import { SendDataContext } from '@/context'
+import { useContext, useEffect, useState } from 'react'
+import { useForm, useWatch, FormProvider } from 'react-hook-form'
 
 export const useVaccinationPageForm = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const {
     vaccination: { setHaveVaccination, setStage, setWhatAreYouWaitingFor },
-  } = useContext(SendDataContext);
+  } = useContext(SendDataContext)
 
   const form = useForm({
     defaultValues: {
@@ -16,41 +16,53 @@ export const useVaccinationPageForm = () => {
       what_are_you_waiting_for:
         localStorage.getItem('whatAreYouWaitingFor') || '',
     },
-  });
-  const { errors } = form.formState;
+  })
+  const { errors, isValid } = form.formState
   const watchHaveVaccination = useWatch({
     control: form.control,
     name: 'have_vaccination',
-  });
+  })
   const watchStage = useWatch({
     control: form.control,
     name: 'stage',
-  });
+  })
   const watchWhatAreYouWaitingFor = useWatch({
     control: form.control,
     name: 'what_are_you_waiting_for',
-  });
+  })
 
   const navigateLeft = () => {
-    localStorage.setItem('from', 'right');
-    localStorage.setItem('page', '/covid-questionnaire');
-    navigate('/covid-questionnaire', { replace: true });
-  };
+    localStorage.setItem('from', 'right')
+    localStorage.setItem('page', '/covid-questionnaire')
+    navigate('/covid-questionnaire')
+  }
   const navigateRight = () => {
-    localStorage.setItem('from', 'left');
-    localStorage.setItem('page', '/tips');
-    navigate('/tips', { replace: true });
-  };
+    localStorage.setItem('from', 'left')
+    localStorage.setItem('page', '/tips')
+    navigate('/tips')
+  }
+  let [color, setColor] = useState(false)
+  let [cursor, setCursor] = useState('cursor-default')
 
   useEffect(() => {
-    localStorage.setItem('haveVaccination', watchHaveVaccination);
-    localStorage.setItem('stage', watchStage);
-    localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor);
+    localStorage.setItem('haveVaccination', watchHaveVaccination)
+    localStorage.setItem('stage', watchStage)
+    localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor)
 
-    setHaveVaccination(watchHaveVaccination);
-    setStage(watchStage);
-    setWhatAreYouWaitingFor(watchWhatAreYouWaitingFor);
-  }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor]);
+    setHaveVaccination(watchHaveVaccination)
+    setStage(watchStage)
+    setWhatAreYouWaitingFor(watchWhatAreYouWaitingFor)
+
+    if (isValid) {
+      localStorage.setItem('vaccinationValid', 'yes')
+      setColor(true)
+      setCursor('cursor-pointer')
+    } else {
+      localStorage.setItem('vaccinationValid', 'no')
+      setCursor('cursor-default')
+      setColor(false)
+    }
+  }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor, isValid])
 
   return {
     form,
@@ -62,5 +74,7 @@ export const useVaccinationPageForm = () => {
     watchWhatAreYouWaitingFor,
     navigateLeft,
     navigateRight,
-  };
-};
+    color,
+    cursor,
+  }
+}

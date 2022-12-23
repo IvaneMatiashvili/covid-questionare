@@ -1,14 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import { useRedirectToCurrentPage } from '@/hooks';
+import { useNavigate } from 'react-router-dom'
 
 export const useNavigation = () => {
-  const navigate = useNavigate();
-  useRedirectToCurrentPage();
+  const navigate = useNavigate()
   const navigateToIdentityPage = () => {
-    localStorage.setItem('page', '/identity');
-    navigate('/identity', { replace: true });
-  };
+    localStorage.setItem('page', '/identity')
+    navigate('/identity')
+  }
   return {
     navigateToIdentityPage,
-  };
-};
+  }
+}

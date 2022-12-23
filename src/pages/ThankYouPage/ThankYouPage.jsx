@@ -1,8 +1,8 @@
-import '@/css/thank-you-page-animation.css';
-import { useRedirectToStartPage } from './components';
+import '@/css/thank-you-page-animation.css'
+import { useRedirectToStartPage } from './components'
 
 const ThankYouPage = () => {
-  useRedirectToStartPage();
+  useRedirectToStartPage()
   return (
     <div className='flex flex-col w-screen h-screen justify-center items-center bg-dark-100 opacity-animation'>
       <div className='w-[30rem]'>
@@ -21,7 +21,7 @@ const ThankYouPage = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ThankYouPage;
+export default ThankYouPage
