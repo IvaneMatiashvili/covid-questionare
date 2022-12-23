@@ -1,19 +1,16 @@
-import LandingPage from '@/pages/LangingPage/LandingPage';
 import '@/index.css';
 import { Route, Routes } from 'react-router-dom';
-import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
-import IdentityPage from '@/pages/IdentityPage/IdentityPage';
-import CovidQuestionnairePage from '@/pages/CovidQuestionnairePage/CovidQuestionnairePage';
-import VaccinationPage from '@/pages/VaccinationPage/ VaccinationPage';
-import TipsPage from '@/pages/TipsPage/TipsPage';
-import { useEffect } from 'react';
+import {
+  LandingPage,
+  NotFoundPage,
+  IdentityPage,
+  CovidQuestionnairePage,
+  VaccinationPage,
+  TipsPage,
+  ThankYouPage,
+} from '@/pages';
 
 function App() {
-  useEffect(() => {
-    if (!localStorage.getItem('page')) {
-      localStorage.setItem('page', '0');
-    }
-  });
   return (
     <>
       <Routes>
@@ -25,6 +22,8 @@ function App() {
         />
         <Route path='/vaccination' element={<VaccinationPage />} />
         <Route path='/tips' element={<TipsPage />} />
+        <Route path='/thank-you' element={<ThankYouPage />} />
+
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>

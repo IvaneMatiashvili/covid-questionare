@@ -1,0 +1,26 @@
+.vaccination-logo-from-left-animation {
+  animation: vaccinationSlideLogoFromLeft 200ms linear;
+}
+
+@keyframes vaccinationSlideLogoFromLeft {
+  from {
+    transform: translateX(-2rem) translateY(10rem);
+  }
+
+  to {
+    transform: translateX(0) translateY(0);
+  }
+}
+.vaccination-logo-from-right-animation {
+  animation: vaccinationSlideLogoFromRight 200ms linear;
+}
+
+@keyframes vaccinationSlideLogoFromRight {
+  from {
+    transform: translateX(15rem) translateY(5rem);
+  }
+
+  to {
+    transform: translateX(0) translateY(0);
+  }
+}

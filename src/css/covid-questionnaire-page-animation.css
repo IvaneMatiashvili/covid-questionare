@@ -1,0 +1,26 @@
+.covid-questionnaire-logo-from-left-animation {
+  animation: covidQuestionnaireSlideLogoFromLeft 200ms linear;
+}
+
+@keyframes covidQuestionnaireSlideLogoFromLeft {
+  from {
+    transform: translateX(20rem) translateY(-2rem);
+  }
+
+  to {
+    transform: translateX(0) translateY(0);
+  }
+}
+.covid-questionnaire-logo-from-right-animation {
+  animation: covidQuestionnaireSlideLogoFromRight 200ms linear;
+}
+
+@keyframes covidQuestionnaireSlideLogoFromRight {
+  from {
+    transform: translateX(3rem) translateY(-10rem);
+  }
+
+  to {
+    transform: translateX(0) translateY(0);
+  }
+}

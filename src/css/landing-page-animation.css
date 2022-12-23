@@ -1,0 +1,112 @@
+.landing-full-logo-animation {
+    animation: landingFullLogoAnimation 1s;
+    animation-timing-function: cubic-bezier(0.9, 0, 1, 1);
+}
+
+@keyframes landingFullLogoAnimation {
+    0% {
+        opacity: 1;
+        width: 100vw;
+        height: 100vh;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        border-radius: 20rem;
+        opacity: 0;
+        width: 5rem;
+        height: 5rem;
+        transform: translateY(-50%);
+    }
+}
+
+.landing-logo-animation {
+    animation-name: landingLogoAnimation;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes landingLogoAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.start-questionnaire-container-animation {
+    animation: startQuestionnaireContainerAnimation 2.6s linear;
+}
+
+@keyframes startQuestionnaireContainerAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+        bottom: 5rem;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0.5;
+    }
+}
+
+.start-questionnaire-animation {
+    animation: startQuestionnaireAnimation 2.2s linear;
+}
+
+@keyframes startQuestionnaireAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+        bottom: 5rem;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0.5;
+    }
+}

@@ -1,9 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Arial';
+  font-style: normal;
+  src: url('/public/fonts/bpg_arial_2009.ttf') format('truetype');
+}
 
 @layer utilities {
-    input[type='number']::-webkit-inner-spin-button {
-        -webkit-appearance: none !important;
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+  }
+  input[type='radio'] {
+    accent-color: #232323;
+  }
+
+  .opacity-animation {
+    animation: opacityAnimation 200ms linear;
+  }
+
+  @keyframes opacityAnimation {
+    from {
+      opacity: 0;
     }
+
+    to {
+      opacity: 1;
+    }
+  }
 }
