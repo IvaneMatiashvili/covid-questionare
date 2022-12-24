@@ -70,8 +70,8 @@ export const useCovidQuestionnairePageForm = () => {
       value: {
         have_covid: watchHaveCovid,
         have_antibodies: watchHaveAntibodies,
-        covid_sicknessDate: watchAntibodiesQuantity,
-        antibodies_quantity: watchCovidSicknessDate,
+        covid_sickness_date: watchCovidSicknessDate,
+        antibodies_quantity: watchAntibodiesQuantity,
         test_date: watchTestDate,
       },
     })
