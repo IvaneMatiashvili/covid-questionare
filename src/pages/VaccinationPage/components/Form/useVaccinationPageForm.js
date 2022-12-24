@@ -5,9 +5,7 @@ import { useForm, useWatch, FormProvider } from 'react-hook-form'
 
 export const useVaccinationPageForm = () => {
   const navigate = useNavigate()
-  const {
-    vaccination: { setHaveVaccination, setStage, setWhatAreYouWaitingFor },
-  } = useContext(SendDataContext)
+  const { dispatch } = useContext(SendDataContext)
 
   const form = useForm({
     defaultValues: {
@@ -47,9 +45,14 @@ export const useVaccinationPageForm = () => {
     localStorage.setItem('stage', watchStage)
     localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor)
 
-    setHaveVaccination(watchHaveVaccination)
-    setStage(watchStage)
-    setWhatAreYouWaitingFor(watchWhatAreYouWaitingFor)
+    dispatch({
+      key: 'vaccination',
+      value: {
+        have_vaccination: watchHaveVaccination,
+        stage: watchStage,
+        what_are_you_waiting_for: watchWhatAreYouWaitingFor,
+      },
+    })
 
     if (isValid) {
       localStorage.setItem('vaccinationValid', 'yes')

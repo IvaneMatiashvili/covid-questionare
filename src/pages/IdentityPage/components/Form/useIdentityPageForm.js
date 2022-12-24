@@ -5,9 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const useIdentityPageForm = () => {
   const navigate = useNavigate()
-  const {
-    identity: { setName, setLastName, setEmail },
-  } = useContext(SendDataContext)
+  const { dispatch } = useContext(SendDataContext)
 
   const form = useForm({
     defaultValues: {
@@ -16,7 +14,6 @@ export const useIdentityPageForm = () => {
       email: localStorage.getItem('email') || '',
     },
   })
-
   const { errors, isValid } = form.formState
 
   const watchName = useWatch({
@@ -45,9 +42,15 @@ export const useIdentityPageForm = () => {
     localStorage.setItem('lastName', watchLastName)
     localStorage.setItem('email', watchEmail)
 
-    setName(watchName)
-    setLastName(watchLastName)
-    setEmail(watchEmail)
+    dispatch({
+      key: 'identity',
+      value: {
+        name: watchName,
+        last_name: watchLastName,
+        email: watchEmail,
+      },
+    })
+
     if (isValid) {
       localStorage.setItem('identityValid', 'yes')
     } else {
