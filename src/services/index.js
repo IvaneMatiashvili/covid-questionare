@@ -11,7 +11,7 @@ const getRegisterRequest = async (enteredValues) => {
     if (enteredValues.haveAntibodies === 'no') {
       data['had_antibody_test'] = false
       let date = moment(new Date(enteredValues.covidSicknessDate)).format(
-        'DD/MM/YYYY'
+        'MM/DD/YYYY'
       )
       data['covid_sickness_date'] = date
     } else {
