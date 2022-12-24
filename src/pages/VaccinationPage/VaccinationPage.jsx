@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import { Form } from './components'
-import '@/css/vaccination-page-animation.css'
+import '@/pages/VaccinationPage/vaccination-page-animation.css'
 
 const VaccinationPage = () => {
   return (

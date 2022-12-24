@@ -1,4 +1,4 @@
-import '@/css/thank-you-page-animation.css'
+import '@/pages/ThankYouPage/thank-you-page-animation.css'
 import { useRedirectToStartPage } from './components'
 
 const ThankYouPage = () => {
