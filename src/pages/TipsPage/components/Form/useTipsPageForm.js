@@ -7,24 +7,27 @@ import getRegisterRequest from '@/services'
 export const useTipsPageForm = () => {
   const navigate = useNavigate()
   const {
-    identity: { name, lastName, email },
-    covidQuestionnaire: {
-      haveCovid,
-      haveAntibodies,
-      covidSicknessDate,
-      antibodiesQuantity,
-      testDate,
-    },
-    vaccination: { haveVaccination, stage, whatAreYouWaitingFor },
-    tips: {
-      meetingField,
-      setMeetingField,
-      workInOfficeField,
-      setWorkInOfficeField,
-      physicalMeetingsField,
-      setPhysicalMeetingsField,
-      whatWouldYouChangeField,
-      setWhatWouldYouChangeField,
+    dispatch,
+    reducerState: {
+      identity: { name, last_name: lastName, email },
+      covid: {
+        have_covid: haveCovid,
+        have_antibodies: haveAntibodies,
+        covid_sickness_date: covidSicknessDate,
+        antibodies_quantity: antibodiesQuantity,
+        test_date: testDate,
+      },
+      vaccination: {
+        have_vaccination: haveVaccination,
+        stage,
+        what_are_you_waiting_for: whatAreYouWaitingFor,
+      },
+      tips: {
+        meeting_field: meetingField,
+        work_in_office_field: workInOfficeField,
+        physical_meetings_field: physicalMeetingsField,
+        what_would_you_change_field: whatWouldYouChangeField,
+      },
     },
   } = useContext(SendDataContext)
 
@@ -87,6 +90,7 @@ export const useTipsPageForm = () => {
         physicalMeetingsField,
         whatWouldYouChangeField,
       })
+
       localStorage.setItem('page', '/thank-you')
       navigate('/thank-you')
     } else {
@@ -103,10 +107,15 @@ export const useTipsPageForm = () => {
       watchWhatWouldYouChangeField
     )
 
-    setMeetingField(watchMeetingField)
-    setWorkInOfficeField(watchWorkInOfficeField)
-    setPhysicalMeetingsField(watchPhysicalMeetingsField)
-    setWhatWouldYouChangeField(watchWhatWouldYouChangeField)
+    dispatch({
+      key: 'tips',
+      value: {
+        meeting_field: watchMeetingField,
+        work_in_office_field: watchWorkInOfficeField,
+        physical_meetings_field: watchPhysicalMeetingsField,
+        what_would_you_change_field: watchWhatWouldYouChangeField,
+      },
+    })
 
     if (isValid) {
       localStorage.setItem('tipsValid', 'yes')

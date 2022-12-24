@@ -1,19 +1,11 @@
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { SendDataContext } from '@/context'
 import { useForm, useWatch, FormProvider } from 'react-hook-form'
 
 export const useCovidQuestionnairePageForm = () => {
   const navigate = useNavigate()
-  const {
-    covidQuestionnaire: {
-      setHaveCovid,
-      setHaveAntibodies,
-      setCovidSicknessDate,
-      setAntibodiesQuantity,
-      setTestDate,
-    },
-  } = useContext(SendDataContext)
+  const { dispatch } = useContext(SendDataContext)
 
   const form = useForm({
     defaultValues: {
@@ -73,11 +65,16 @@ export const useCovidQuestionnairePageForm = () => {
     localStorage.setItem('covidSicknessDate', watchCovidSicknessDate)
     localStorage.setItem('testDate', watchTestDate)
 
-    setHaveCovid(watchHaveCovid)
-    setHaveAntibodies(watchHaveAntibodies)
-    setCovidSicknessDate(watchCovidSicknessDate)
-    setAntibodiesQuantity(watchAntibodiesQuantity)
-    setTestDate(watchTestDate)
+    dispatch({
+      key: 'covid',
+      value: {
+        have_covid: watchHaveCovid,
+        have_antibodies: watchHaveAntibodies,
+        covid_sicknessDate: watchAntibodiesQuantity,
+        antibodies_quantity: watchCovidSicknessDate,
+        test_date: watchTestDate,
+      },
+    })
 
     if (isValid) {
       localStorage.setItem('covidValid', 'yes')

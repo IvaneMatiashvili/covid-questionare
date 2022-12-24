@@ -1,125 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 
 const SendDataContext = React.createContext({
-  identity: {
-    name: '',
-    setName: (prev) => {},
-    lastName: '',
-    setLastName: (prev) => {},
-    email: '',
-    setEmail: (prev) => {},
-  },
-  covidQuestionnaire: {
-    haveCovid: '',
-    setHaveCovid: (prev) => {},
-    haveAntibodies: '',
-    setHaveAntibodies: (prev) => {},
-    covidSicknessDate: '',
-    setCovidSicknessDate: (prev) => {},
-    antibodiesQuantity: '',
-    setAntibodiesQuantity: (prev) => {},
-    testDate: '',
-    setTestDate: (prev) => {},
-  },
-  vaccination: {
-    haveVaccination: '',
-    setHaveVaccination: (prev) => {},
-    stage: '',
-    setStage: (prev) => {},
-    whatAreYouWaitingFor: '',
-    setWhatAreYouWaitingFor: (prev) => {},
-  },
-  tips: {
-    meetingField: '',
-    setMeetingField: (prev) => {},
-    workInOfficeField: '',
-    setWorkInOfficeField: (prev) => {},
-    physicalMeetingsField: '',
-    setPhysicalMeetingsField: (prev) => {},
-    whatWouldYouChangeField: '',
-    setWhatWouldYouChangeField: (prev) => {},
-  },
+  reducerState: {},
+  dispatch: () => {},
 })
 
 export const SendDataContextProvider = (props) => {
-  const [name, setName] = useState(localStorage.getItem('name'))
-  const [lastName, setLastName] = useState(localStorage.getItem('lastName'))
-  const [email, setEmail] = useState(localStorage.getItem('email'))
+  const initialState = {
+    identity: {
+      name: localStorage.getItem('name'),
+      last_name: localStorage.getItem('lastName'),
+      email: localStorage.getItem('email'),
+    },
+    covid: {
+      have_covid: localStorage.getItem('haveCovid'),
+      have_antibodies: localStorage.getItem('haveAntibodies'),
+      covid_sickness_date: localStorage.getItem('covidSicknessDate'),
+      antibodies_quantity: localStorage.getItem('antibodiesQuantity'),
+      test_date: localStorage.getItem('testDate'),
+    },
+    vaccination: {
+      have_vaccination: localStorage.getItem('haveVaccination'),
 
-  const [haveCovid, setHaveCovid] = useState(localStorage.getItem('haveCovid'))
-  const [haveAntibodies, setHaveAntibodies] = useState(
-    localStorage.getItem('haveAntibodies')
-  )
-  const [covidSicknessDate, setCovidSicknessDate] = useState(
-    localStorage.getItem('covidSicknessDate')
-  )
-  const [antibodiesQuantity, setAntibodiesQuantity] = useState(
-    localStorage.getItem('antibodiesQuantity')
-  )
-  const [testDate, setTestDate] = useState(localStorage.getItem('testDate'))
+      stage: localStorage.getItem('stage'),
+      what_are_you_waiting_for: localStorage.getItem('whatAreYouWaitingFor'),
+    },
+    tips: {
+      meeting_field: localStorage.getItem('meetingField'),
+      work_in_office_field: localStorage.getItem('workInOfficeField'),
+      physical_meetings_field: localStorage.getItem('physicalMeetingsField'),
+      what_would_you_change_field: localStorage.getItem(
+        'whatWouldYouChangeField'
+      ),
+    },
+  }
 
-  const [haveVaccination, setHaveVaccination] = useState(
-    localStorage.getItem('haveVaccination')
-  )
-  const [stage, setStage] = useState(localStorage.getItem('stage'))
-  const [whatAreYouWaitingFor, setWhatAreYouWaitingFor] = useState(
-    localStorage.getItem('whatAreYouWaitingFor')
-  )
+  function reducer(state, action) {
+    return {
+      ...state,
+      [action.key]: action.value,
+    }
+  }
 
-  const [meetingField, setMeetingField] = useState(
-    localStorage.getItem('meetingField')
-  )
-  const [workInOfficeField, setWorkInOfficeField] = useState(
-    localStorage.getItem('workInOfficeField')
-  )
-  const [physicalMeetingsField, setPhysicalMeetingsField] = useState(
-    localStorage.getItem('physicalMeetingsField')
-  )
-  const [whatWouldYouChangeField, setWhatWouldYouChangeField] = useState(
-    localStorage.getItem('whatWouldYouChangeField')
-  )
+  const [reducerState, dispatch] = useReducer(reducer, initialState)
 
   return (
     <SendDataContext.Provider
       value={{
-        identity: {
-          name: name,
-          setName: setName,
-          lastName: lastName,
-          setLastName: setLastName,
-          email: email,
-          setEmail: setEmail,
-        },
-        covidQuestionnaire: {
-          haveCovid: haveCovid,
-          setHaveCovid: setHaveCovid,
-          haveAntibodies: haveAntibodies,
-          setHaveAntibodies: setHaveAntibodies,
-          covidSicknessDate: covidSicknessDate,
-          setCovidSicknessDate: setCovidSicknessDate,
-          antibodiesQuantity: antibodiesQuantity,
-          setAntibodiesQuantity: setAntibodiesQuantity,
-          testDate: testDate,
-          setTestDate: setTestDate,
-        },
-        vaccination: {
-          haveVaccination: haveVaccination,
-          setHaveVaccination: setHaveVaccination,
-          stage: stage,
-          setStage: setStage,
-          whatAreYouWaitingFor: whatAreYouWaitingFor,
-          setWhatAreYouWaitingFor: setWhatAreYouWaitingFor,
-        },
-        tips: {
-          meetingField: meetingField,
-          setMeetingField: setMeetingField,
-          workInOfficeField: workInOfficeField,
-          setWorkInOfficeField: setWorkInOfficeField,
-          physicalMeetingsField: physicalMeetingsField,
-          setPhysicalMeetingsField: setPhysicalMeetingsField,
-          whatWouldYouChangeField: whatWouldYouChangeField,
-          setWhatWouldYouChangeField: setWhatWouldYouChangeField,
-        },
+        reducerState,
+        dispatch,
       }}
     >
       {props.children}
