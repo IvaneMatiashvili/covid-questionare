@@ -73,7 +73,7 @@ export const useTipsPageForm = () => {
       localStorage.getItem('vaccinationValid') === 'yes' &&
       localStorage.getItem('tipsValid') === 'yes'
     ) {
-      const registerRequest = getRegisterRequest({
+      getRegisterRequest({
         name,
         lastName,
         email,
@@ -128,6 +128,7 @@ export const useTipsPageForm = () => {
     watchPhysicalMeetingsField,
     watchWhatWouldYouChangeField,
     isValid,
+    dispatch,
   ])
 
   return {

@@ -56,7 +56,7 @@ export const useIdentityPageForm = () => {
     } else {
       localStorage.setItem('identityValid', 'no')
     }
-  }, [watchName, watchLastName, watchEmail, isValid])
+  }, [watchName, watchLastName, watchEmail, isValid, dispatch])
   return {
     form,
     handleSubmit: form.handleSubmit,

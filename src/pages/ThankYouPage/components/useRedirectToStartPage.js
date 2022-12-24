@@ -9,7 +9,7 @@ const useRedirectToStartPage = () => {
       navigate('/')
       localStorage.setItem('page', '/')
     }, 2500)
-  }, [])
+  }, [navigate])
 }
 
 export default useRedirectToStartPage

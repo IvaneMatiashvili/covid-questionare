@@ -88,6 +88,7 @@ export const useCovidQuestionnairePageForm = () => {
     watchCovidSicknessDate,
     watchTestDate,
     isValid,
+    dispatch,
   ])
 
   return {

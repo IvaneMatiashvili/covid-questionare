@@ -59,7 +59,13 @@ export const useVaccinationPageForm = () => {
     } else {
       localStorage.setItem('vaccinationValid', 'no')
     }
-  }, [watchHaveVaccination, watchStage, watchWhatAreYouWaitingFor, isValid])
+  }, [
+    watchHaveVaccination,
+    watchStage,
+    watchWhatAreYouWaitingFor,
+    isValid,
+    dispatch,
+  ])
 
   return {
     form,
