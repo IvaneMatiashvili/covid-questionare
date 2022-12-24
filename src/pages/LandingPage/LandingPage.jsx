@@ -32,7 +32,6 @@ const LandingPage = () => {
             ></div>
           </a>
         </div>
-        <p>{hasHover}</p>
       </div>
     </div>
   )
