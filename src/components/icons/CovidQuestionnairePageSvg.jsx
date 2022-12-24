@@ -12,7 +12,7 @@ const IdentityPageNumberSvg = () => {
         fill='#232323'
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IdentityPageNumberSvg;
+export default IdentityPageNumberSvg

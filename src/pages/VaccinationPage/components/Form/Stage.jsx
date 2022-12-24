@@ -1,4 +1,4 @@
-import { InputRadioAndLabel } from '@/components';
+import { InputRadioAndLabel } from '@/components'
 
 const Stage = () => {
   return (
@@ -30,7 +30,7 @@ const Stage = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Stage;
+export default Stage

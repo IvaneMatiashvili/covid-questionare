@@ -1,4 +1,4 @@
-import { InputRadioAndLabel } from '@/components';
+import { InputRadioAndLabel } from '@/components'
 
 const HaveCovid = () => {
   return (
@@ -32,7 +32,7 @@ const HaveCovid = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default HaveCovid;
+export default HaveCovid

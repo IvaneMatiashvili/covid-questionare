@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const SendDataContext = React.createContext({
   identity: {
@@ -39,49 +39,49 @@ const SendDataContext = React.createContext({
     whatWouldYouChangeField: '',
     setWhatWouldYouChangeField: (prev) => {},
   },
-});
+})
 
 export const SendDataContextProvider = (props) => {
   //identity
-  const [name, setName] = useState(localStorage.getItem('name'));
-  const [lastName, setLastName] = useState(localStorage.getItem('lastName'));
-  const [email, setEmail] = useState(localStorage.getItem('email'));
+  const [name, setName] = useState(localStorage.getItem('name'))
+  const [lastName, setLastName] = useState(localStorage.getItem('lastName'))
+  const [email, setEmail] = useState(localStorage.getItem('email'))
 
   //covid-questionnaire
-  const [haveCovid, setHaveCovid] = useState(localStorage.getItem('haveCovid'));
+  const [haveCovid, setHaveCovid] = useState(localStorage.getItem('haveCovid'))
   const [haveAntibodies, setHaveAntibodies] = useState(
     localStorage.getItem('haveAntibodies')
-  );
+  )
   const [covidSicknessDate, setCovidSicknessDate] = useState(
     localStorage.getItem('covidSicknessDate')
-  );
+  )
   const [antibodiesQuantity, setAntibodiesQuantity] = useState(
     localStorage.getItem('antibodiesQuantity')
-  );
-  const [testDate, setTestDate] = useState(localStorage.getItem('testDate'));
+  )
+  const [testDate, setTestDate] = useState(localStorage.getItem('testDate'))
 
   //vaccination
   const [haveVaccination, setHaveVaccination] = useState(
     localStorage.getItem('haveVaccination')
-  );
-  const [stage, setStage] = useState(localStorage.getItem('stage'));
+  )
+  const [stage, setStage] = useState(localStorage.getItem('stage'))
   const [whatAreYouWaitingFor, setWhatAreYouWaitingFor] = useState(
     localStorage.getItem('whatAreYouWaitingFor')
-  );
+  )
 
   //tips
   const [meetingField, setMeetingField] = useState(
     localStorage.getItem('meetingField')
-  );
+  )
   const [workInOfficeField, setWorkInOfficeField] = useState(
     localStorage.getItem('workInOfficeField')
-  );
+  )
   const [physicalMeetingsField, setPhysicalMeetingsField] = useState(
     localStorage.getItem('physicalMeetingsField')
-  );
+  )
   const [whatWouldYouChangeField, setWhatWouldYouChangeField] = useState(
     localStorage.getItem('whatWouldYouChangeField')
-  );
+  )
 
   return (
     <SendDataContext.Provider
@@ -128,7 +128,7 @@ export const SendDataContextProvider = (props) => {
     >
       {props.children}
     </SendDataContext.Provider>
-  );
-};
+  )
+}
 
-export default SendDataContext;
+export default SendDataContext

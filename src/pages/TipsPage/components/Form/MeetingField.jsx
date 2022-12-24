@@ -1,4 +1,4 @@
-import { InputRadioAndLabel } from '@/components';
+import { InputRadioAndLabel } from '@/components'
 
 const MeetingField = () => {
   return (
@@ -38,7 +38,7 @@ const MeetingField = () => {
         />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default MeetingField;
+export default MeetingField

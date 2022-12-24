@@ -45,7 +45,7 @@ git clone https://github.com/RedberryInternship/ivane-covid-questionare.git
 2\. Secondly, open the directory that was created.
 
 ```sh
-cd ivane-covid-questionare 
+cd ivane-covid-questionare
 ```
 
 3\. Next step requires you to run `npm install` in order to install all the dependencies.

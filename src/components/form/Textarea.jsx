@@ -1,7 +1,7 @@
-import { useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form'
 
 const Textarea = ({ id, name }) => {
-  const { register } = useFormContext();
+  const { register } = useFormContext()
   return (
     <textarea
       rows='4'
@@ -12,7 +12,7 @@ const Textarea = ({ id, name }) => {
          resize-none
         '
     ></textarea>
-  );
-};
+  )
+}
 
-export default Textarea;
+export default Textarea

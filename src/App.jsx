@@ -1,5 +1,5 @@
-import '@/index.css';
-import { Route, Routes } from 'react-router-dom';
+import '@/index.css'
+import { Route, Routes } from 'react-router-dom'
 import {
   LandingPage,
   NotFoundPage,
@@ -8,7 +8,7 @@ import {
   VaccinationPage,
   TipsPage,
   ThankYouPage,
-} from '@/pages';
+} from '@/pages'
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

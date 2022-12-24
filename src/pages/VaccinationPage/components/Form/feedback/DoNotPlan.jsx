@@ -8,7 +8,7 @@ const DoNotPlan = () => {
         👉 https://booking.moh.gov.ge/
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default DoNotPlan;
+export default DoNotPlan
