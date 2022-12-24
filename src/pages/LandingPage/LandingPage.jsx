@@ -16,7 +16,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className='mt-6'>
-          <a
+          <div
             className={`flex flex-col justify-center overflow-hidden items-center h-16 w-52 ${
               isPointer && 'cursor-pointer'
             } mt-[6.3rem] start-questionnaire-container-animation`}
@@ -32,7 +32,7 @@ const LandingPage = () => {
                 hasHover && 'hover:bg-shadow'
               } bg-contain ml-12 bg-no-repeat shadow-container-animation absolute h-16 w-56`}
             ></div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
