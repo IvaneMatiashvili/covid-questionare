@@ -1,104 +1,76 @@
 .landing-full-logo-animation {
-    animation: landingFullLogoAnimation 400ms;
-    animation-timing-function: linear;
+  animation: landingFullLogoAnimation 400ms;
+  animation-timing-function: linear;
 }
 
 @keyframes landingFullLogoAnimation {
-    0% {
-        opacity: 1;
-        width: 120vw;
-        height: 220vh;
-        bottom: 0%;
-    }
-    20% {
-        bottom: 1%;
-        opacity: 1;
-    }
-    40% {
-        bottom: 2%;
-        opacity: 1;
-    }
-    60% {
-        bottom: 3%;
-        opacity: 1;
-    }
-    80% {
-        bottom: 4%;
-        opacity: 1;
-    }
-    100% {
-        bottom: 5%;
-        width: 10rem;
-        height: 10rem;
-    }
+  0% {
+    opacity: 1;
+    width: 120vw;
+    height: 220vh;
+    bottom: 0%;
+  }
+  20% {
+    bottom: 1%;
+    opacity: 1;
+  }
+  40% {
+    bottom: 2%;
+    opacity: 1;
+  }
+  60% {
+    bottom: 3%;
+    opacity: 1;
+  }
+  80% {
+    bottom: 4%;
+    opacity: 1;
+  }
+  100% {
+    bottom: 5%;
+    width: 10rem;
+    height: 10rem;
+  }
 }
 
 .start-questionnaire-container-animation {
-    animation: startQuestionnaireContainerAnimation 1s linear;
+  animation: startQuestionnaireContainerAnimation 1s linear;
 }
 
 @keyframes startQuestionnaireContainerAnimation {
-    from {
-        opacity: 0;
-        height: 0;
-    }
-    100% {
-        height: 5rem;
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    height: 5rem;
+    opacity: 1;
+  }
 }
 
 .start-questionnaire-animation {
-    animation: startQuestionnaireAnimation 1s linear;
+  animation: startQuestionnaireAnimation 1s linear;
 }
 
 @keyframes startQuestionnaireAnimation {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    60% {
-        opacity: 0;
-    }
-    80% {
-        opacity: 0;
-        bottom: 5rem;
-    }
-    100% {
-        bottom: 0;
-        opacity: 1;
-    }
-
-}
-
-.shadow-container-animation {
-    animation: shadowContainerAnimation 1.2s linear;
-}
-
-@keyframes shadowContainerAnimation {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    60% {
-        opacity: 0;
-    }
-    80% {
-        opacity: 0;
-    }
-    100% {
-        bottom: 0;
-        opacity: 1;
-    }
-
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+    bottom: 5rem;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
 }
