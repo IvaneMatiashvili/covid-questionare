@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import { Form } from './components'
-import '@/pages/CovidQuestionnairePage/covid-questionnaire-page-animation.css'
+import './covid-questionnaire-page-animation.css'
 
 const CovidQuestionnairePage = () => {
   return (

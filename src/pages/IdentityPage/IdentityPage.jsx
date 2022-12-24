@@ -1,5 +1,5 @@
 import { Layout } from '@/components'
-import '@/pages/IdentityPage/identity-page-animatiom.css'
+import './identity-page-animatiom.css'
 import { Form } from './components'
 
 const IdentityPage = () => {

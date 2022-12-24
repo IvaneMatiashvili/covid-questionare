@@ -1,5 +1,5 @@
 import { useNavigation } from './useNavigation.js'
-import '@/pages/LandingPage/landing-page-animation.css'
+import './landing-page-animation.css'
 
 const LandingPage = () => {
   const { navigateToIdentityPage, hasHover, isPointer } = useNavigation()
