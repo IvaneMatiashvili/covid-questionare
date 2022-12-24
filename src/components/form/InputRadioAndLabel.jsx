@@ -18,7 +18,7 @@ const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
       <div className='h-8 flex justify-center items-center'>
         <label
           htmlFor={id}
-          className='ml-2 font-arial font-normal  text-xl font-medium text-dark-100'
+          className='ml-2 font-arial font-normal  text-xl text-dark-100'
         >
           {labelContent}
         </label>

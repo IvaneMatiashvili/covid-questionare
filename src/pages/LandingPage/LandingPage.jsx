@@ -7,7 +7,7 @@ const LandingPage = () => {
     <div className='w-screen h-screen bg-soft-brown flex justify-center items-center overflow-hidden opacity-animation'>
       <div className='flex flex-col justify-center items-center overflow-hidden'>
         <div className='absolute flex justify-center items-center overflow-hidden h-screen w-screen'>
-          <div className='absolute w-[200vw] h-[200vh] object-cover landing-full-logo overflow-hidden object-fill flex justify-center items-center mb-10'>
+          <div className='absolute w-[200vw] h-[200vh] landing-full-logo overflow-hidden object-fill flex justify-center items-center mb-10'>
             <img
               src='/assets/redberry.png'
               className='w-[7rem] h-[7rem] object-fill landing-full-logo-animation relative bottom-[5%] opacity-1'
