@@ -1,4 +1,4 @@
-import { InputRadioAndLabel } from '@/components';
+import { InputRadioAndLabel } from '@/components'
 
 const WhatAreYouWaitingFor = () => {
   return (
@@ -30,7 +30,7 @@ const WhatAreYouWaitingFor = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WhatAreYouWaitingFor;
+export default WhatAreYouWaitingFor

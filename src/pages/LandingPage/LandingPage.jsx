@@ -1,5 +1,5 @@
 import { useNavigation } from './useNavigation.js'
-import '@/css/landing-page-animation.css'
+import './landing-page-animation.css'
 
 const LandingPage = () => {
   const { navigateToIdentityPage, hasHover, isPointer } = useNavigation()
@@ -11,6 +11,7 @@ const LandingPage = () => {
             <img
               src='/assets/redberry.png'
               className='w-[7rem] h-[7rem] object-fill landing-full-logo-animation relative bottom-[5%] opacity-1'
+              alt='redberry logo'
             />
           </div>
         </div>
@@ -24,6 +25,7 @@ const LandingPage = () => {
             <img
               src='/assets/start.png'
               className='relative start-questionnaire-animation h-16 w-52 object-contain'
+              alt='start questionnaire'
             />
             <div
               className={`${

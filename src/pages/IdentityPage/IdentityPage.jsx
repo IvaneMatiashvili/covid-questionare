@@ -1,5 +1,5 @@
 import { Layout } from '@/components'
-import '@/css/identity-page-animatiom.css'
+import './identity-page-animatiom.css'
 import { Form } from './components'
 
 const IdentityPage = () => {
@@ -19,10 +19,12 @@ const IdentityPage = () => {
         <img
           src='/assets/identity.png'
           className='object-top object-cover h-[50rem] z-10 relative bottom-10'
+          alt='identity'
         />
         <img
           src='/assets/rectangle.png'
           className='h-16 w-[40rem] absolute left-1/2 top-1/3 identity-logo-left-animation'
+          alt='rectangle'
         />
       </div>
     </Layout>

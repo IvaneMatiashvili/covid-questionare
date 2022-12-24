@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 
-const InputTypeText = ({ id, name, placeholder, labelContent, erorrs }) => {
+const InputTypeText = ({ id, name, placeholder, labelContent, errors }) => {
   const { register, setValue } = useFormContext()
   return (
     <>
@@ -12,7 +12,7 @@ const InputTypeText = ({ id, name, placeholder, labelContent, erorrs }) => {
       </label>
       <input
         {...register(name, {
-          ...erorrs,
+          ...errors,
           onChange: (e) => {
             e.target.value = e.target.value.trim()
             setValue(name, e.target.value.trim(), { shouldValidate: true })

@@ -10,7 +10,7 @@ const Form = () => {
       <form onSubmit={handleSubmit(navigateRight)}>
         <InputTypeText
           name='name'
-          erorrs={{
+          errors={{
             required: 'სახელის ველის შევსება სავალდებულოა',
             minLength: {
               value: 3,
@@ -27,7 +27,7 @@ const Form = () => {
 
         <InputTypeText
           name='last_name'
-          erorrs={{
+          errors={{
             required: 'გვარის ველის შევსება სავალდებულოა',
             minLength: {
               value: 3,
@@ -44,7 +44,7 @@ const Form = () => {
 
         <InputTypeText
           name='email'
-          erorrs={{
+          errors={{
             required: 'ემაილის ველის შევსება სავალდებულოა',
             pattern: {
               value: /^[\w.+\-]+@redberry\.ge$/,

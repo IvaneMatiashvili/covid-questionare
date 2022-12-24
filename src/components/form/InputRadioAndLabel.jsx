@@ -1,7 +1,7 @@
-import { useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form'
 
 const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
-  const { register } = useFormContext();
+  const { register } = useFormContext()
   return (
     <div className='flex justify-start items-center ml-5 mt-2.5'>
       <div className='h-8 flex justify-center items-center mr-4'>
@@ -24,7 +24,7 @@ const InputRadioAndLabel = ({ id, value, labelContent, name }) => {
         </label>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InputRadioAndLabel;
+export default InputRadioAndLabel

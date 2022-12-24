@@ -44,7 +44,7 @@ const RedberrySvg = () => {
         fill='#FE3B1F'
       />
     </svg>
-  );
-};
+  )
+}
 
-export default RedberrySvg;
+export default RedberrySvg

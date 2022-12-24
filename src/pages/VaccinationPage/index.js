@@ -1,1 +1,1 @@
-export { default as VaccinationPage } from './VaccinationPage.jsx';
+export { default as VaccinationPage } from './VaccinationPage.jsx'

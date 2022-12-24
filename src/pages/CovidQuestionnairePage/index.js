@@ -1,1 +1,1 @@
-export { default as CovidQuestionnairePage } from './CovidQuestionnairePage';
+export { default as CovidQuestionnairePage } from './CovidQuestionnairePage'

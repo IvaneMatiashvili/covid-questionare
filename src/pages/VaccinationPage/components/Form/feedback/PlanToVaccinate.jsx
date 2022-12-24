@@ -17,7 +17,7 @@ const PlanToVaccinate = () => {
         https://booking.moh.gov.ge/
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default PlanToVaccinate;
+export default PlanToVaccinate

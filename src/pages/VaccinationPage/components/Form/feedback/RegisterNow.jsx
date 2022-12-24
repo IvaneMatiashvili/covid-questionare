@@ -14,7 +14,7 @@ const RegisterNow = () => {
         https://booking.moh.gov.ge/
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterNow;
+export default RegisterNow

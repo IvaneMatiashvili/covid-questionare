@@ -1,1 +1,1 @@
-export { default as IdentityPage } from './IdentityPage';
+export { default as IdentityPage } from './IdentityPage'

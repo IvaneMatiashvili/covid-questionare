@@ -1,4 +1,4 @@
-import { InputRadioAndLabel } from '@/components';
+import { InputRadioAndLabel } from '@/components'
 
 const HaveVaccination = () => {
   return (
@@ -23,7 +23,7 @@ const HaveVaccination = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HaveVaccination;
+export default HaveVaccination
