@@ -22,10 +22,12 @@ const VaccinationPage = () => {
         <img
           src='/assets/tips.png'
           className='object-top object-cover z-10 absolute top-[20%] left-1/2 h-[48rem] pb-20'
+          alt='bicycle'
         />
         <img
           src='/assets/heart.png'
           className={`absolute left-[55%] top-1/4 tips-logo-from-left-animation`}
+          alt='heart'
         />
       </div>
     </Layout>

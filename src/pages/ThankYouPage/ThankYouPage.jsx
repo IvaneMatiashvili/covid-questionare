@@ -9,15 +9,17 @@ const ThankYouPage = () => {
         <img
           src='/assets/left-star.png'
           className='left-star relative left-[10%] mb-6'
+          alt='star'
         />
       </div>
       <div>
-        <img src='/assets/thank-you.png' />
+        <img src='/assets/thank-you.png' alt='thank you' />
       </div>
       <div className='w-[30rem]'>
         <img
           src='/assets/right-star.png'
           className='right-star relative mt-4 left-[80%]'
+          alt='star'
         />
       </div>
     </div>
