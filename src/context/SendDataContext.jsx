@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useReducer } from 'react'
 
 const SendDataContext = React.createContext({
   reducerState: {},
@@ -35,10 +35,15 @@ export const SendDataContextProvider = (props) => {
     },
   }
 
-  function reducer(state, action) {
-    return {
-      ...state,
-      [action.key]: action.value,
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'UPDATE':
+        return {
+          ...state,
+          [action.key]: action.value,
+        }
+      default:
+        return state
     }
   }
 
