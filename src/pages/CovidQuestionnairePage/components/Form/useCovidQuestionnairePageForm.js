@@ -66,6 +66,7 @@ export const useCovidQuestionnairePageForm = () => {
     localStorage.setItem('testDate', watchTestDate)
 
     dispatch({
+      type: 'UPDATE',
       key: 'covid',
       value: {
         have_covid: watchHaveCovid,

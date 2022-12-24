@@ -43,6 +43,7 @@ export const useIdentityPageForm = () => {
     localStorage.setItem('email', watchEmail)
 
     dispatch({
+      type: 'UPDATE',
       key: 'identity',
       value: {
         name: watchName,
