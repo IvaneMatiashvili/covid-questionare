@@ -42,12 +42,10 @@ const SendDataContext = React.createContext({
 })
 
 export const SendDataContextProvider = (props) => {
-  //identity
   const [name, setName] = useState(localStorage.getItem('name'))
   const [lastName, setLastName] = useState(localStorage.getItem('lastName'))
   const [email, setEmail] = useState(localStorage.getItem('email'))
 
-  //covid-questionnaire
   const [haveCovid, setHaveCovid] = useState(localStorage.getItem('haveCovid'))
   const [haveAntibodies, setHaveAntibodies] = useState(
     localStorage.getItem('haveAntibodies')
@@ -60,7 +58,6 @@ export const SendDataContextProvider = (props) => {
   )
   const [testDate, setTestDate] = useState(localStorage.getItem('testDate'))
 
-  //vaccination
   const [haveVaccination, setHaveVaccination] = useState(
     localStorage.getItem('haveVaccination')
   )
@@ -69,7 +66,6 @@ export const SendDataContextProvider = (props) => {
     localStorage.getItem('whatAreYouWaitingFor')
   )
 
-  //tips
   const [meetingField, setMeetingField] = useState(
     localStorage.getItem('meetingField')
   )
