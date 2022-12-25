@@ -66,7 +66,7 @@ export const useCovidQuestionnairePageForm = () => {
     localStorage.setItem('testDate', watchTestDate)
 
     dispatch({
-      key: 'covid',
+      type: 'covid',
       value: {
         have_covid: watchHaveCovid,
         have_antibodies: watchHaveAntibodies,
@@ -88,6 +88,7 @@ export const useCovidQuestionnairePageForm = () => {
     watchCovidSicknessDate,
     watchTestDate,
     isValid,
+    dispatch,
   ])
 
   return {

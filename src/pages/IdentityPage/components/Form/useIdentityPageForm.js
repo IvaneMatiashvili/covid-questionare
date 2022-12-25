@@ -43,7 +43,7 @@ export const useIdentityPageForm = () => {
     localStorage.setItem('email', watchEmail)
 
     dispatch({
-      key: 'identity',
+      type: 'identity',
       value: {
         name: watchName,
         last_name: watchLastName,
@@ -56,7 +56,7 @@ export const useIdentityPageForm = () => {
     } else {
       localStorage.setItem('identityValid', 'no')
     }
-  }, [watchName, watchLastName, watchEmail, isValid])
+  }, [watchName, watchLastName, watchEmail, isValid, dispatch])
   return {
     form,
     handleSubmit: form.handleSubmit,
