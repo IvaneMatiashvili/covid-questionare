@@ -51,7 +51,7 @@ const getRegisterRequest = async (enteredValues) => {
       enteredValues.whatWouldYouChangeField
   }
   try {
-    const res = await axios({
+    await axios({
       method: 'post',
       url: 'https://covid19.devtest.ge/api/create',
       headers: {
