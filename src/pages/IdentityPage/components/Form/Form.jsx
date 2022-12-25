@@ -49,7 +49,7 @@ const Form = () => {
             pattern: {
               value: /^[\w.+\-]+@redberry\.ge$/,
               message:
-                'გთხოვთ დარეგისტრირდეთ Redberry-ს ვალიდური მეილით (youremail@redberry.ge)',
+                'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)',
             },
           }}
           id='email'
