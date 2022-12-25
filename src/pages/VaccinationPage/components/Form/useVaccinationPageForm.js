@@ -47,7 +47,6 @@ export const useVaccinationPageForm = () => {
 
     dispatch({
       type: 'vaccination',
-      key: 'vaccination',
       value: {
         have_vaccination: watchHaveVaccination,
         stage: watchStage,

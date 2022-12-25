@@ -67,7 +67,6 @@ export const useCovidQuestionnairePageForm = () => {
 
     dispatch({
       type: 'covid',
-      key: 'covid',
       value: {
         have_covid: watchHaveCovid,
         have_antibodies: watchHaveAntibodies,

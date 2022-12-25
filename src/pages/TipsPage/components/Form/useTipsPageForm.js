@@ -109,7 +109,6 @@ export const useTipsPageForm = () => {
 
     dispatch({
       type: 'tips',
-      key: 'tips',
       value: {
         meeting_field: watchMeetingField,
         work_in_office_field: watchWorkInOfficeField,

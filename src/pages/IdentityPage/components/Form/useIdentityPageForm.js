@@ -44,7 +44,6 @@ export const useIdentityPageForm = () => {
 
     dispatch({
       type: 'identity',
-      key: 'identity',
       value: {
         name: watchName,
         last_name: watchLastName,
