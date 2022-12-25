@@ -46,7 +46,7 @@ export const useVaccinationPageForm = () => {
     localStorage.setItem('whatAreYouWaitingFor', watchWhatAreYouWaitingFor)
 
     dispatch({
-      type: 'UPDATE',
+      type: 'vaccination',
       key: 'vaccination',
       value: {
         have_vaccination: watchHaveVaccination,

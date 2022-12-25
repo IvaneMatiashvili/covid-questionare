@@ -108,7 +108,7 @@ export const useTipsPageForm = () => {
     )
 
     dispatch({
-      type: 'UPDATE',
+      type: 'tips',
       key: 'tips',
       value: {
         meeting_field: watchMeetingField,

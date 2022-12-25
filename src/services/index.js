@@ -42,6 +42,7 @@ const getRegisterRequest = async (enteredValues) => {
   }
   data['non_formal_meetings'] = enteredValues.meetingField
   data['number_of_days_from_office'] = enteredValues.workInOfficeField
+
   if (enteredValues.physicalMeetingsField.trim().length > 0) {
     data['what_about_meetings_in_live'] = enteredValues.physicalMeetingsField
   }
