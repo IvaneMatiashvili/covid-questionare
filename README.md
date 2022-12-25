@@ -28,7 +28,7 @@ the Covid situation and how Redberry can improve and support the company's inter
 
 - <img src="readme/assets/react-icon.svg.png" height="18" style="position: relative; top: 4px" /> [React@18.2.0](https://reactjs.org/) - Front-end framework.
 - <img src="readme/assets/react-router-icon.png" height="18" style="position: relative; top: 4px" /> [React-router@v6.4.5](https://reactrouter.com/en/main) - Standard library for routing in React.
-- <img src="readme/assets/vite.svg" height="18" style="position: relative; top: 4px" /> [Vite@4.0.0](https://vitejs.dev/guide/) - Helps to bundle application's CSS and JavaScript files into production ready assets.
+- <img src="readme/assets/vite.png" height="18" style="position: relative; top: 4px" /> [Vite@4.0.0](https://vitejs.dev/guide/) - Helps to bundle application's CSS and JavaScript files into production ready assets.
 - <img src="readme/assets/tailwind.svg.png" height="19" style="position: relative; top: 4px" /> [Tailwind CSS@3.2.4](https://tailwindcss.com/) - A utility-first CSS framework.
 - <img src="readme/assets/react-hook-form.png" height="19" style="position: relative; top: 4px" /> [React hook form@7.41.0](https://react-hook-form.com/) - Package for form validation.
 
