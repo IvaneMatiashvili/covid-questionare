@@ -34,8 +34,8 @@ const TestAndAntibodies = ({ controller: Controller, watch, control }) => {
       <input
         {...register('antibodies_quantity', {
           pattern: {
-            value: /^[0-9]*$/,
-            message: 'გამოიყენეთ მხოლოდ ციფრები',
+            value: /^[1-9][0-9]*$/,
+            message: 'გამოიყენეთ მხოლოდ ციფრები(პირველი ციფრი უნდა აღემატებოდეს 0-ს)',
           },
           onChange: (e) => {
             e.target.value = e.target.value.trim()
