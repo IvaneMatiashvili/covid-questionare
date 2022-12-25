@@ -11,7 +11,7 @@ const TestAndAntibodies = ({ controller: Controller, watch, control }) => {
         className='block font-arial text-[1.4rem] font-bold text-dark-100 mt-10'
       >
         თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების
-        რაოდენობა*
+        რაოდენობა
       </label>
 
       <Controller
