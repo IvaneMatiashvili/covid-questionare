@@ -10,7 +10,7 @@ import {
   ThankYouPage,
 } from '@/pages'
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
