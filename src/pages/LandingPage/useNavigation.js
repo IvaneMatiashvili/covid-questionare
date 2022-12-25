@@ -14,7 +14,7 @@ export const useNavigation = () => {
   const timer = setTimeout(() => {
     setHasHover(true)
     setIsPointer(true)
-  }, 800)
+  }, 1850)
 
   useEffect(() => {
     return () => clearTimeout(timer)
